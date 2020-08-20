@@ -1,0 +1,238 @@
+;
+
+					XDEF main
+
+
+					Include 'qtqy_registers.inc'    ; For the QT1, QT2, QT4, QY1, QY2, QY4
+PORTA	EQU $0000
+PORTB	EQU $0001
+DDRA    EQU $0004
+DDRB	EQU $0005
+PTAPUE  EQU $000B
+PTBPUE  EQU $000C
+
+KBSCR   EQU $001A
+KBIER   EQU $001B
+
+INTSCR	EQU $001D
+
+CONFIG2 EQU $001E
+CONFIG1 EQU $001F
+
+TSC	EQU $0020
+TCNTH	EQU $0021
+TCNTL	EQU $0022
+TMODH	EQU $0023
+TMODL	EQU $0024
+TSC0	EQU $0025
+TCH0H	EQU $0026
+TCH0L	EQU $0027
+TSC1	EQU $0028
+TCH1H	EQU $0029
+TCH1L	EQU $002A
+
+OSCSTAT EQU $0036
+OSCTRIM EQU $0037
+
+ADSCR	EQU $003C
+ADR	    EQU $003E
+ADICLK  EQU $003F
+
+BSR	EQU $FE00
+SRSR	EQU $FE01
+BRKAR	EQU $FE02
+BFCR	EQU $FE03
+INT1	EQU $FE04
+INT2	EQU $FE05
+INT3	EQU $FE06
+FLCR	EQU $FE08
+BRKH	EQU $FE09
+BRKL	EQU $FE0A
+BRKSCR	EQU $FE0B
+LVISR	EQU $FE0c
+FLBPR	EQU $FFBE
+IOSCTRM EQU $FFC0
+
+COPCTL	EQU $FFFF
+
+
+
+          
+
+DEFAULT_RAM				SECTION SHORT    
+TEMPO: DS 1
+VARDELAY:  DS  1
+TEMPOSINAL: DS 1
+STATUSPORTA: DS 1
+STATUSTEMPO: DS 1
+; Place RAM Variables here
+ 
+DEFAULT_ROM				SECTION
+main:      
+                   
+                     MOV #$40,CONFIG2
+                    
+                   MOV  #$39,CONFIG1
+                 ;  MOV #$80,PTAPUE
+                     MOV #$30,TSC
+                     MOV #$46,TSC
+                     LDHX #50000
+                     STHX TMODH
+                     MOV #$38,DDRA
+                     MOV #0,PORTA
+                     MOV #$83,PTAPUE
+                     CLR INTSCR
+                     CLR TEMPO
+                     CLI
+
+LERCHAVE: LDA PORTA
+          AND #3
+          BEQ TEMP0
+          DECA
+          BEQ TEMP1
+          DECA
+          BEQ PISCAAMARELO
+FIXAVERDE: MOV #$20,PORTA
+			BRA LERCHAVE
+			
+PISCAAMARELO: SWI
+                            BRA LERCHAVE
+                            
+
+
+PISCA:
+		BSET 1, INTSCR
+		CLI
+		 MOV #$10,PORTA
+				CLR TEMPO
+LPI: 
+		LDA TEMPO
+		BEQ LPI
+				;BSR D1SEG
+				MOV #0,PORTA
+				CLR TEMPO
+LPI2:
+		LDA TEMPO
+		BEQ LPI2
+				;BSR D1SEG
+				BRCLR 1,PORTA,SAI;CH1=0 SAI
+				BRCLR 0,PORTA,PISCA; CH1=1 E CH0=0 PISCA
+				
+SAI:	                      BSET 2,INTSCR
+				NOP
+LANUNCA:		BRN LANUNCA
+				NOP
+				BCLR 2,INTSCR
+		BCLR 1, INTSCR
+				RTI
+
+TEMP0:
+
+VERDE:                     
+         MOV #$20,PORTA
+                
+              ; MOV #4,TEMPOSINAL
+            CLR TEMPO              
+LVERDE:       
+              LDA TEMPO
+              EOR #4
+              BNE LVERDE
+
+; BSR D1SEG   
+              
+ ;              DBNZ TEMPOSINAL,LVERDE
+               
+                        
+AMARELO:                     
+           MOV #$10,PORTA
+           CLR TEMPO
+ LAMARELO:      
+                                 
+ 
+          LDA TEMPO
+              EOR #2
+              BNE LAMARELO         
+           
+VERMELHO: 
+            MOV #$8,PORTA
+              CLR TEMPO
+LVERMELHO:      
+               LDA TEMPO
+              EOR #3
+              BNE LVERMELHO
+               BRA LERCHAVE     
+TEMP1:
+
+VERDE1:                     
+         MOV #$20,PORTA
+                
+          CLR TEMPO
+                
+LVERDE1:       
+		 LDA TEMPO
+              EOR #3
+              BNE LAMARELO 
+               
+                        
+AMARELO1:                     
+           MOV #$10,PORTA
+                    
+         CLR TEMPO           
+LAMARELO1:   
+		LDA TEMPO
+              EOR #1
+              BNE LAMARELO               
+VERMELHO1: 
+            MOV #$8,PORTA
+              CLR TEMPO
+LVERMELHO1:    
+		LDA TEMPO
+              EOR #4
+              BNE LAMARELO                                     
+                     BRA LERCHAVE
+                     
+                     
+                     
+ D1SEG:          LDA #100
+                         STA VARDELAY                   
+ D10MILI:        LDA #100                    
+ D100MICRO: LDX #80
+ LOOP0:          DECX
+                        BNE LOOP0 
+                        DECA
+                        BNE D100MICRO
+                        DEC VARDELAY
+                        BNE D10MILI                   
+                         RTS
+                     
+ PEDESTRE:
+ 			CLI 
+ 			 MOV PORTA,STATUSPORTA
+                    MOV TEMPOSINAL,STATUSTEMPO
+                     MOV #8,PORTA
+                     CLR TEMPO
+ LPE:            
+ 		LDA TEMPO
+ 		EOR #4
+ 		BNE LPE               
+                     MOV STATUSPORTA,PORTA
+                     MOV STATUSTEMPO,TEMPOSINAL     
+ 			RTI
+ 			
+ROTTIMER:
+                     INC TEMPO
+
+			BCLR 7,TSC
+
+			RTI 			
+ 			
+                     ORG $FFF2
+                     DC.W ROTTIMER
+ 
+ 			ORG $FFFA
+ 			DC.W PEDESTRE
+  			ORG $FFFC
+  			DC.W PISCA
+                     
+                     
+                     

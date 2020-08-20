@@ -1,0 +1,22 @@
+/* This is a .Prm file for the QT4*/
+
+NAMES END 
+           
+SEGMENTS
+  RAM     = READ_WRITE  0x0080 TO 0x00FF; 
+  ROM     = READ_ONLY   0xEE00 TO 0xFDFF;
+END
+
+PLACEMENT
+  DEFAULT_ROM     INTO ROM;
+  DEFAULT_RAM     INTO RAM;
+  SSTACK          INTO RAM;    
+END
+
+STACKSIZE 0x60
+
+VECTOR ADDRESS 0xFFFE main
+
+
+INIT main
+

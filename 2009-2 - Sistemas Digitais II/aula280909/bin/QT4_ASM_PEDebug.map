@@ -1,0 +1,121 @@
+
+PROGRAM "F:\meca0209\aula280909\bin\QT4_ASM_PEDebug.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Motorola HC08
+Memory Model: SMALL
+File Format : ELF\Dwarf 2.0
+Linker      : SmartLinker V-5.0.19, Apr  2 2002
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main.asm.o                              Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point : 0xEE00 (main)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.data                              2   R/W       0x80       0x81   RAM
+.stack                            96   R/W       0x82       0xE1   RAM
+main.asm__ORG00001                 2     R     0xFFFC     0xFFFD   .absSeg0
+.init                            141     R     0xEE00     0xEE8C   ROM
+.vectSeg1_vect                     2     R     0xFFFE     0xFFFF   .vectSeg1
+
+
+ROM size:       91 (dec:      145)
+RAM size:       62 (dec:       98)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xEE00   main
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section     RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main.asm.o --
+- PROCEDURES:
+     main                                      EE00       F      15       0   .init       
+     LERCHAVE                                  EE0F      11      17       0   .init       
+     PISCAAMARELO                              EE20       3       3       0   .init       
+     PISCA                                     EE23       B      11       1   .init       
+     TEMP0                                     EE2E       6       6       0   .init       
+     LVERDE                                    EE34       C      12       0   .init       
+     LAMARELO                                  EE40       C      12       0   .init       
+     LVERMELHO                                 EE4C       8       8       0   .init       
+     TEMP1                                     EE54       6       6       0   .init       
+     LVERDE1                                   EE5A       C      12       0   .init       
+     LAMARELO1                                 EE66       C      12       0   .init       
+     LVERMELHO1                                EE72       8       8       0   .init       
+     D1SEG                                     EE7A       4       4       0   .init       
+     D10MILI                                   EE7E       2       2       0   .init       
+     D100MICRO                                 EE80       2       2       0   .init       
+     LOOP0                                     EE82       B      11       0   .init       
+- VARIABLES:
+     VARDELAY                                    80       1       1       2   .data       
+     TEMPOSINAL                                  81       1       1      12   .data       
+     VAR00001                                  FFFC       2       2       0   .text       
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".text"
+  VAR00001 
+SECTION: ".data"
+  VARDELAY TEMPOSINAL 
+SECTION: ".init"
+  main LERCHAVE PISCAAMARELO PISCA TEMP0 LVERDE LAMARELO LVERMELHO TEMP1 
+  LVERDE1 LAMARELO1 LVERMELHO1 D1SEG D10MILI D100MICRO LOOP0 
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+TEMP0                     USES TEMPOSINAL 
+LVERDE                    USES TEMPOSINAL 
+LAMARELO                  USES TEMPOSINAL 
+LVERMELHO                 USES TEMPOSINAL 
+TEMP1                     USES TEMPOSINAL 
+LVERDE1                   USES TEMPOSINAL 
+LAMARELO1                 USES TEMPOSINAL 
+LVERMELHO1                USES TEMPOSINAL 
+D1SEG                     USES VARDELAY 
+LOOP0                     USES VARDELAY 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+      
+ _ORG00001           
+ | 
+ +- PISCA               
+      
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 3
+Total size of all blocks to be downloaded: 145
+

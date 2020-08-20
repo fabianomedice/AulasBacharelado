@@ -1,0 +1,112 @@
+*** EVALUATION ***
+PROGRAM "E:\mec0109\aula210909\bin\QT4_ASM_PEDebug.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Motorola HC08
+Memory Model: SMALL
+File Format : ELF\Dwarf 2.0
+Linker      : SmartLinker V-5.0.19, Apr  2 2002
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main.asm.o                              Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point : 0xEE00 (main)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.data                              2   R/W       0x80       0x81   RAM
+.stack                            96   R/W       0x82       0xE1   RAM
+.init                            139     R     0xEE00     0xEE8A   ROM
+.vectSeg0_vect                     2     R     0xFFFE     0xFFFF   .vectSeg0
+
+
+ROM size:       8D (dec:      141)
+RAM size:       62 (dec:       98)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xEE00   main
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section     RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main.asm.o --
+- PROCEDURES:
+     main                                      EE00       C      12       0   .init       
+     LERCHAVE                                  EE0C      14      20       0   .init       
+     PISCAAMARELO                              EE20       C      12       0   .init       
+     TEMP0                                     EE2C       6       6       0   .init       
+     LVERDE                                    EE32       C      12       0   .init       
+     LAMARELO                                  EE3E       C      12       0   .init       
+     LVERMELHO                                 EE4A       8       8       0   .init       
+     TEMP1                                     EE52       6       6       0   .init       
+     LVERDE1                                   EE58       C      12       0   .init       
+     LAMARELO1                                 EE64       C      12       0   .init       
+     LVERMELHO1                                EE70       8       8       0   .init       
+     D1SEG                                     EE78       4       4       0   .init       
+     D10MILI                                   EE7C       2       2       0   .init       
+     D100MICRO                                 EE7E       2       2       0   .init       
+     LOOP0                                     EE80       B      11       0   .init       
+- VARIABLES:
+     TEMPOSINAL                                  80       1       1      12   .data       
+     VARDELAY                                    81       1       1       2   .data       
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".data"
+  TEMPOSINAL VARDELAY 
+SECTION: ".init"
+  main LERCHAVE PISCAAMARELO TEMP0 LVERDE LAMARELO LVERMELHO TEMP1 LVERDE1 
+  LAMARELO1 LVERMELHO1 D1SEG D10MILI D100MICRO LOOP0 
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+TEMP0                     USES TEMPOSINAL 
+LVERDE                    USES TEMPOSINAL 
+LAMARELO                  USES TEMPOSINAL 
+LVERMELHO                 USES TEMPOSINAL 
+TEMP1                     USES TEMPOSINAL 
+LVERDE1                   USES TEMPOSINAL 
+LAMARELO1                 USES TEMPOSINAL 
+LVERMELHO1                USES TEMPOSINAL 
+D1SEG                     USES VARDELAY 
+LOOP0                     USES VARDELAY 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+      
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 2
+Total size of all blocks to be downloaded: 141
+
