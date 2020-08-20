@@ -1,0 +1,181 @@
+
+PROGRAM "E:\meca0209\aula141009\bin\Project.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC08
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.34 Build 8120, Apr 30 2008
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main141009.asm.o                        Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xEE00 (main)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.data                              5   R/W       0x80       0x84   RAM
+.stack                            96   R/W       0x85       0xE4   RAM
+main141009.asm__ORG00001           2     R     0xFFF2     0xFFF3   .absSeg0
+main141009.asm__ORG00002           2     R     0xFFFA     0xFFFB   .absSeg1
+main141009.asm__ORG00003           2     R     0xFFFC     0xFFFD   .absSeg2
+.init                            252     R     0xEE00     0xEEFB   ROM
+.vectSeg3_vect                     2     R     0xFFFE     0xFFFF   .vectSeg3
+
+Summary of section sizes per section type:
+READ_ONLY (R):         104 (dec:      260)
+READ_WRITE (R/W):       65 (dec:      101)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xEE00   main
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main141009.asm.o --
+- PROCEDURES:
+     main                                      EE00      1F      31       0   .init       
+     LZERA                                     EE1F       B      11       0   .init       
+     LERCHAVE                                  EE2A       C      12       1   .init       
+     KAA                                       EE36      13      19       0   .init       
+     FIXAVERMELHO                              EE49       5       5       0   .init       
+     PISCAAMARELO                              EE4E       3       3       0   .init       
+     PISCA                                     EE51       8       8       1   .init       
+     LPI                                       EE59       9       9       0   .init       
+     LPI2                                      EE62      13      19       0   .init       
+     LANUNCA                                   EE75       8       8       0   .init       
+     TEMP0                                     EE7D       6       6       0   .init       
+     LVERDE                                    EE83       A      10       0   .init       
+     LAMARELO                                  EE8D       A      10       0   .init       
+     LVERMELHO                                 EE97       6       6       0   .init       
+     TEMP1                                     EE9D      21      33       0   .init       
+     PEDESTRE                                  EEBE       A      10       1   .init       
+     LPE                                       EEC8       8       8       0   .init       
+     ROTTIMER                                  EED0      29      41       1   .init       
+     SAIROT                                    EEF9       3       3       0   .init       
+- VARIABLES:
+     HORA                                        80       1       1       6   .data       
+     MIN                                         81       1       1       6   .data       
+     SEG                                         82       1       1       3   .data       
+     TEMPO                                       83       1       1      19   .data       
+     STATUSPORTA                                 84       1       1       2   .data       
+     VAR00001                                  FFF2       2       2       0   .text       
+     VAR00002                                  FFFA       2       2       0   .text       
+     VAR00003                                  FFFC       2       2       0   .text       
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main141009.asm.o                             5    252      6
+  other                                       96      2      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".text"
+  VAR00001 VAR00002 VAR00003 
+SECTION: ".data"
+  HORA MIN SEG TEMPO STATUSPORTA 
+SECTION: ".init"
+  main LZERA LERCHAVE KAA FIXAVERMELHO PISCAAMARELO PISCA LPI LPI2 LANUNCA 
+  TEMP0 LVERDE LAMARELO LVERMELHO TEMP1 PEDESTRE LPE ROTTIMER SAIROT 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     HORA                                        80       1       1       6   .data       
+     MIN                                         81       1       1       6   .data       
+     SEG                                         82       1       1       3   .data       
+     TEMPO                                       83       1       1      19   .data       
+     STATUSPORTA                                 84       1       1       2   .data       
+     main                                      EE00      1F      31       0   .init       
+     LZERA                                     EE1F       B      11       0   .init       
+     LERCHAVE                                  EE2A       C      12       1   .init       
+     KAA                                       EE36      13      19       0   .init       
+     FIXAVERMELHO                              EE49       5       5       0   .init       
+     PISCAAMARELO                              EE4E       3       3       0   .init       
+     PISCA                                     EE51       8       8       1   .init       
+     LPI                                       EE59       9       9       0   .init       
+     LPI2                                      EE62      13      19       0   .init       
+     LANUNCA                                   EE75       8       8       0   .init       
+     TEMP0                                     EE7D       6       6       0   .init       
+     LVERDE                                    EE83       A      10       0   .init       
+     LAMARELO                                  EE8D       A      10       0   .init       
+     LVERMELHO                                 EE97       6       6       0   .init       
+     TEMP1                                     EE9D      21      33       0   .init       
+     PEDESTRE                                  EEBE       A      10       1   .init       
+     LPE                                       EEC8       8       8       0   .init       
+     ROTTIMER                                  EED0      29      41       1   .init       
+     SAIROT                                    EEF9       3       3       0   .init       
+     VAR00001                                  FFF2       2       2       0   .text       
+     VAR00002                                  FFFA       2       2       0   .text       
+     VAR00003                                  FFFC       2       2       0   .text       
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+LZERA                     USES HORA MIN 
+LERCHAVE                  USES HORA MIN 
+PISCA                     USES TEMPO 
+LPI                       USES TEMPO 
+LPI2                      USES TEMPO HORA MIN 
+TEMP0                     USES TEMPO 
+LVERDE                    USES TEMPO 
+LAMARELO                  USES TEMPO 
+LVERMELHO                 USES TEMPO 
+TEMP1                     USES TEMPO LERCHAVE 
+PEDESTRE                  USES STATUSPORTA TEMPO 
+LPE                       USES TEMPO STATUSPORTA 
+ROTTIMER                  USES TEMPO SEG MIN HORA 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+      
+ _ORG00001           
+ | 
+ +- ROTTIMER            
+      
+ _ORG00002           
+ | 
+ +- PEDESTRE            
+      
+ _ORG00003           
+ | 
+ +- PISCA               
+      
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 5
+Total size of all blocks to be downloaded: 260
+
