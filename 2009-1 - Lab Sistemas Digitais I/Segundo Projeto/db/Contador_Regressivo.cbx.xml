@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="Contador_Regressivo">
+		<CBX_INST_ENTRY INSTANCE_NAME="|Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|lpm_constant:scdw" CBX_FILE_NAME="lpm_constant_874.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|lpm_constant:scdw" CBX_FILE_NAME="lpm_constant_374.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Contador_Regressivo|div10:inst8|lpm_counter:lpm_counter_component|lpm_add_sub:add_sub" CBX_FILE_NAME="add_sub_4ge.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|lpm_add_sub:add_sub" CBX_FILE_NAME="add_sub_5he.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|lpm_constant:scdw" CBX_FILE_NAME="lpm_constant_874.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|lpm_add_sub:add_sub" CBX_FILE_NAME="add_sub_4he.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|lpm_constant:scdw" CBX_FILE_NAME="lpm_constant_374.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Contador_Regressivo|div10:inst8|lpm_counter:lpm_counter_component|lpm_constant:scdw" CBX_FILE_NAME="lpm_constant_9h3.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|lpm_add_sub:add_sub" CBX_FILE_NAME="add_sub_5he.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|lpm_add_sub:add_sub" CBX_FILE_NAME="add_sub_4he.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
