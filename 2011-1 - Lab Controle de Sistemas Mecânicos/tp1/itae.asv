@@ -1,0 +1,4 @@
+function [k]=itae(tempo,onda,valor_do_degrau)
+
+
+k =

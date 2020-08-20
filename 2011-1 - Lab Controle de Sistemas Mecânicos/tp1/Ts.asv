@@ -1,0 +1,11 @@
+function [k]= Ts(tempo,onda)
+tam=size(onda);
+j=1;
+for i=1:tam(1)
+    y=100*(onda(i)-onda(end))/onda(end);
+    if y<2
+        indice(j)=i;
+        j=j+1
+    end
+end
+k = tempo(indice(1));

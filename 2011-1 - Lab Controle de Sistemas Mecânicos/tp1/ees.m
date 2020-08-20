@@ -1,0 +1,28 @@
+function [k]= ees(onda,valor_degrau)
+x=max(onda);
+tam=size(onda);
+for i=1:tam(1)
+    y=onda(i);
+   if y==x
+       indice=i;
+   end
+end
+j=1;
+for i=indice+1:tam(1) %criando o vetor erro apartir do Ts
+    erro(j) = abs(valor_degrau-onda(i));
+    j=j+1;
+end
+j=1;
+tam_erro=size(erro);
+for i=1:tam_erro(1)-1 %vasculhando o vetor erro
+    if abs(erro(i)) > abs(erro(i+1)) %achar pico
+        if abs(erro(i)) > abs(erro(i-1)) %ver se não é descida
+            y=abs(100*(erro(i)-valor_degrau)/valor_degrau);
+            if y<2
+                indice(j)=i;
+                j=j+1;
+            end
+        end
+    end
+end
+k = erro(indice(1));

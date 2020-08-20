@@ -1,0 +1,19 @@
+clc;
+clear all;
+close all;
+
+%adicionando os valores para a função de tranferencia
+Wn = 5;
+E = 0.1;
+Num = [Wn 0 0];
+Den = [1 2*E*Wn Wn*Wn];
+printsys (Num,Den) %mostrar a função de tranferencia
+t = linspace (0,20,1000); %vetor tempo
+y=step(Num,Den,t);
+% figure
+% plot(t,y)
+Ultrapassagem_Percentual = UP(y)
+Tempo_de_Acomodacao = Ts(Wn,E)
+Tempo_de_Pico = Tp(t,y)
+Erro_em_estado_estacionario = ees(y,1)
+ITAE=itae(t,

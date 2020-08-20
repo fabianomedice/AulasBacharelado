@@ -1,0 +1,116 @@
+clc
+clear all
+close all
+
+%Parametros da Planta Discreta
+
+b2 = 0.013251685632334;   
+b1 = 0.053133594388332;   
+b0 = 0.059791980806458;
+a2 = -0.993962379303577;  
+a1 = -0.355972874751493;   
+a0 = 0.349800012527730;
+Ta = 10/1000; %tempo de amostragem
+
+%A planta
+nump = [0 b2 b1 b0];
+denp = [1 a2 a1 a0];
+
+Gz = tf (nump,denp,Ta)
+figure
+rlocus (Gz)
+zgrid
+zeros_Gz = zero(Gz)
+polos_Gz = pole(Gz)
+
+keyboard
+
+%Os ganhos Kp, Ki, Kd
+
+K_P = rlocfind (Gz); %ganho do controlador P
+
+%Para o controlador P
+%Kp = K
+
+Kp_P = K_P
+Ki_P = 0;
+Kd_P = 0;
+
+%Controlador PD
+%1 Zero = 1 / (Kp/Kd * Ta + 1)
+%1 Polo = 0
+
+Zero_PD = 0.57;
+
+num_PD = [1 -Zero_PD];
+den_PD = [Ta 0];
+
+[nump_PD,denp_PD] = series(nump,denp,num_PD,den_PD);
+G_PD = tf (nump_PD,denp_PD,Ta);
+figure
+rlocus (G_PD)
+zgrid
+
+keyboard
+
+K_PD = rlocfind (G_PD); %ganho do controlador PD
+
+%Para o controlador PD
+%Kd = K
+%Kp = (1/Zero - 1)*Kd/Ta
+
+Kp_PD = (1/Zero_PD-1)*K_PD/Ta
+Ki_PD = 0;
+Kd_PD = K_PD
+
+%Controlador PI
+%1 Zero = 1 / (Ki/Kp * Ta + 1)
+%1 Polo = 1
+
+Zero_PI = 0.90;
+
+num_PI = [1 -Zero_PI];
+den_PI = [1 -1];
+
+[nump_PI,denp_PI] = series(nump,denp,num_PI,den_PI);
+G_PI = tf (nump_PI,denp_PI,Ta);
+figure
+rlocus (G_PI)
+zgrid
+
+keyboard
+
+K_PI = rlocfind (G_PI); %ganho do controlador PI
+
+%Para o controlador PI
+%Kp = K
+%Ki = (1/Zero - 1)*Kp/Ta
+
+Kp_PI = K_PI
+Ki_PI = (1/Zero_PI - 1)*K_PI/Ta
+Kd_PI = 0;
+
+%O ruído
+
+ruido_media = 0.011877972928933; 
+ruido_variancia = 0.1;
+
+%A Saturação
+
+saturacao_max = 5;
+saturacao_min = -5;
+
+%A banda morta
+
+banda_morta_ini = -2.3;
+banda_morta_fim = 2.3;
+
+%O degrau
+
+amplitude = 50;
+
+%Chamando os SIMULINKS
+
+discretoSIMULINK_P %controlador P
+discretoSIMULINK_PD %controlador PD
+discretoSIMULINK_PI %controlador PI

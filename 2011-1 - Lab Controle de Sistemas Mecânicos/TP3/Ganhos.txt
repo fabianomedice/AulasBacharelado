@@ -1,0 +1,15 @@
+Controlador P
+
+Kp = 0.0530
+
+Controlador PI
+
+Kp = 0.0302
+
+Ki = 0.1022
+
+Controlador PD
+
+Kp = 0.1928
+
+Kd = 0.0104
