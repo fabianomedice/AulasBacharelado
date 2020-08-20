@@ -1,0 +1,34 @@
+PTB 7	Sinal Trafico Vermelho
+PTB 6	Sinal Trafico Amarelo
+PTB 5	Sinal Trafico Verde
+PTB 4	Sinal Pedestre Vermelho
+PTB 3	Sinal Pedestre Verde
+PTB 2	Saida 3 para central (de velocidade)
+PTB 1	Saida 2 para central (de velocidade)
+PTB 0	Saida 1 para central (para a porta OR)
+PTA 5	Clock da central
+PTA 4	Entrada 3 da central (carros)
+PTA 3	Entrada 2 da central (velocidade)
+PTA 2	Entrada 1 da central (velocidade)
+PTA 1	Sensor B
+PTA 0	Sensor A
+
+
+CI or -> 74LS32
+CI not -> 74LS04
+
+Ruas 1 e 3 Logica Negativa	NOT nas portas
+Ruas 2 e 4 Logica Positiva
+
+tabela de clocks
+
+Entrada 	3	2	1				VERDE	AMARELO	VERMELHO PEDESTRE
+
+		0	0	0 Default -			5	1	6	1
+		0	0	1 velo - carro - rapido		3	1	9	1
+		0	1	0 velo - rapido			3	1	8	1
+		0	1	1 velo - carro			4	1	7	1
+		1	0	0 velo + carro			6	1	5	1
+		1	0	1 velo + rapido			7	1	4	1
+		1	1	0 velo + carro + rapido		8	1	4	1
+		1	1	1 Default +			5	1	6	1

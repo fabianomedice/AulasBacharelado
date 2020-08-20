@@ -1,0 +1,196 @@
+
+PROGRAM "C:\Documents and Settings\Fabiano\Meus documentos\labsis2\Ruas\ruas\bin\Project.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC08
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.34 Build 8120, Apr 30 2008
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main.asm.o                              Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xEE00 (_Startup)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                            803     R     0xEE00     0xF122   ROM
+MY_ZEROPAGE                       36   R/W       0x80       0xA3   Z_RAM
+main.asm__ORG00001                 2     R     0xFFE0     0xFFE1   .absSeg0
+.stack                            48   R/W       0xA4       0xD3   Z_RAM
+.vectSeg1_vect                     2     R     0xFFFE     0xFFFF   .vectSeg1
+
+Summary of section sizes per section type:
+READ_ONLY (R):         327 (dec:      807)
+READ_WRITE (R/W):       54 (dec:       84)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xEE00   _Startup
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main.asm.o --
+- PROCEDURES:
+     _Startup                                  EE00      1B      27       0   .init       
+     main                                      EE00       0       0       0   .init       
+     clock                                     EE1B       5       5       8   .init       
+     controlck                                 EE20      22      34       0   .init       
+     jncarnvel                                 EE42       A      10       0   .init       
+     jnvel                                     EE4C       A      10       0   .init       
+     jncar                                     EE56       A      10       0   .init       
+     jpcar                                     EE60       A      10       0   .init       
+     jpvel                                     EE6A       A      10       0   .init       
+     jpcarpvel                                 EE74       A      10       0   .init       
+     jpdefault                                 EE7E       A      10       0   .init       
+     ndefault                                  EE88      53      83       0   .init       
+     ncarnvel                                  EEDB      53      83       1   .init       
+     nvel                                      EF2E      53      83       1   .init       
+     ncar                                      EF81      53      83       1   .init       
+     pcar                                      EFD4      43      67       1   .init       
+     pvel                                      F017      43      67       1   .init       
+     pcarpvel                                  F05A      43      67       1   .init       
+     pdefault                                  F09D      43      67       1   .init       
+     tempo                                     F0E0       4       4      36   .init       
+     DTEMPOSEG                                 F0E0       0       0       0   .init       
+     D10MILI                                   F0E4       2       2       0   .init       
+     D100MICRO                                 F0E6       2       2       0   .init       
+     LOOP0                                     F0E8       F      15       0   .init       
+     sensor                                    F0F7      14      20       1   .init       
+     sensorB                                   F10B       D      13       0   .init       
+     vel                                       F118       8       8       0   .init       
+     contadora                                 F120       2       2       0   .init       
+     saida                                     F122       1       1       0   .init       
+- VARIABLES:
+     CARROS                                      80       1       1      10   MY_ZEROPAGE 
+     TEMPO                                       81       1       1      37   MY_ZEROPAGE 
+     TEMPOAUX                                    82       1       1       2   MY_ZEROPAGE 
+     BUFFER                                      83      20      32       0   MY_ZEROPAGE 
+     AUXBUFFER                                   A3       1       1       0   MY_ZEROPAGE 
+     VAR00001                                  FFE0       2       2       0   .text       
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main.asm.o                                  36    803      2
+  other                                       48      2      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".text"
+  VAR00001 
+SECTION: ".init"
+  main _Startup clock controlck jncarnvel jnvel jncar jpcar jpvel jpcarpvel 
+  jpdefault ndefault ncarnvel nvel ncar pcar pvel pcarpvel pdefault DTEMPOSEG 
+  tempo D10MILI D100MICRO LOOP0 sensor sensorB vel contadora saida 
+SECTION: "MY_ZEROPAGE"
+  CARROS TEMPO TEMPOAUX BUFFER AUXBUFFER 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     CARROS                                      80       1       1      10   MY_ZEROPAGE 
+     TEMPO                                       81       1       1      37   MY_ZEROPAGE 
+     TEMPOAUX                                    82       1       1       2   MY_ZEROPAGE 
+     BUFFER                                      83      20      32       0   MY_ZEROPAGE 
+     AUXBUFFER                                   A3       1       1       0   MY_ZEROPAGE 
+     main                                      EE00       0       0       0   .init       
+     _Startup                                  EE00      1B      27       0   .init       
+     clock                                     EE1B       5       5       8   .init       
+     controlck                                 EE20      22      34       0   .init       
+     jncarnvel                                 EE42       A      10       0   .init       
+     jnvel                                     EE4C       A      10       0   .init       
+     jncar                                     EE56       A      10       0   .init       
+     jpcar                                     EE60       A      10       0   .init       
+     jpvel                                     EE6A       A      10       0   .init       
+     jpcarpvel                                 EE74       A      10       0   .init       
+     jpdefault                                 EE7E       A      10       0   .init       
+     ndefault                                  EE88      53      83       0   .init       
+     ncarnvel                                  EEDB      53      83       1   .init       
+     nvel                                      EF2E      53      83       1   .init       
+     ncar                                      EF81      53      83       1   .init       
+     pcar                                      EFD4      43      67       1   .init       
+     pvel                                      F017      43      67       1   .init       
+     pcarpvel                                  F05A      43      67       1   .init       
+     pdefault                                  F09D      43      67       1   .init       
+     DTEMPOSEG                                 F0E0       0       0       0   .init       
+     tempo                                     F0E0       4       4      36   .init       
+     D10MILI                                   F0E4       2       2       0   .init       
+     D100MICRO                                 F0E6       2       2       0   .init       
+     LOOP0                                     F0E8       F      15       0   .init       
+     sensor                                    F0F7      14      20       1   .init       
+     sensorB                                   F10B       D      13       0   .init       
+     vel                                       F118       8       8       0   .init       
+     contadora                                 F120       2       2       0   .init       
+     saida                                     F122       1       1       0   .init       
+     VAR00001                                  FFE0       2       2       0   .text       
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+controlck                 USES CARROS 
+jncarnvel                 USES CARROS ncarnvel 
+jnvel                     USES CARROS nvel 
+jncar                     USES CARROS ncar 
+jpcar                     USES CARROS pcar 
+jpvel                     USES CARROS pvel 
+jpcarpvel                 USES CARROS pcarpvel 
+jpdefault                 USES CARROS pdefault 
+ndefault                  USES TEMPO tempo clock 
+ncarnvel                  USES TEMPO tempo clock 
+nvel                      USES TEMPO tempo clock 
+ncar                      USES TEMPO tempo clock 
+pcar                      USES TEMPO tempo clock 
+pvel                      USES TEMPO tempo clock 
+pcarpvel                  USES TEMPO tempo clock 
+pdefault                  USES TEMPO tempo clock 
+tempo                     USES TEMPOAUX 
+LOOP0                     USES TEMPOAUX TEMPO 
+sensor                    USES CARROS 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- _Startup            
+      
+ _ORG00001           
+ | 
+ +- sensor              
+      
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 3
+Total size of all blocks to be downloaded: 807
+

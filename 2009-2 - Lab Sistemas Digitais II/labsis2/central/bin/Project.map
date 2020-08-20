@@ -1,0 +1,156 @@
+
+PROGRAM "C:\Documents and Settings\Fabiano\Meus documentos\labsis2\central\bin\Project.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC08
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.34 Build 8120, Apr 30 2008
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main.asm.o                              Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xEE00 (_Startup)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                            179     R     0xEE00     0xEEB2   ROM
+MY_ZEROPAGE                        1   R/W       0x80       0x80   Z_RAM
+.stack                            48   R/W       0x81       0xB0   Z_RAM
+.vectSeg0_vect                     2     R     0xFFFE     0xFFFF   .vectSeg0
+
+Summary of section sizes per section type:
+READ_ONLY (R):          B5 (dec:      181)
+READ_WRITE (R/W):       31 (dec:       49)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xEE00   _Startup
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main.asm.o --
+- PROCEDURES:
+     _Startup                                  EE00      18      24       0   .init       
+     main                                      EE00       0       0       0   .init       
+     control                                   EE18       6       6       3   .init       
+     zero                                      EE1E       6       6       0   .init       
+     defaultmais                               EE24       8       8       0   .init       
+     zero1                                     EE2C       B      11       0   .init       
+     velmenos                                  EE37       8       8       0   .init       
+     positivo                                  EE3F       6       6       0   .init       
+     carmais                                   EE45       8       8       0   .init       
+     positivo1                                 EE4D       B      11       0   .init       
+     negativo                                  EE58       3       3       0   .init       
+     carmenos                                  EE5B       8       8       0   .init       
+     negativo1                                 EE63       9       9       0   .init       
+     zeradora                                  EE6C      10      16       0   .init       
+     vel                                       EE7C      1F      31       0   .init       
+     carp                                      EE9B       4       4       0   .init       
+     cari                                      EE9F       4       4       0   .init       
+     car1                                      EEA3       6       6       0   .init       
+     velp                                      EEA9       5       5       0   .init       
+     veli                                      EEAE       5       5       0   .init       
+- VARIABLES:
+     AUX                                         80       1       1      18   MY_ZEROPAGE 
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main.asm.o                                   1    179      0
+  other                                       48      2      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".init"
+  main _Startup control zero defaultmais zero1 velmenos positivo carmais 
+  positivo1 negativo carmenos negativo1 zeradora vel carp cari car1 velp veli 
+SECTION: "MY_ZEROPAGE"
+  AUX 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     AUX                                         80       1       1      18   MY_ZEROPAGE 
+     main                                      EE00       0       0       0   .init       
+     _Startup                                  EE00      18      24       0   .init       
+     control                                   EE18       6       6       3   .init       
+     zero                                      EE1E       6       6       0   .init       
+     defaultmais                               EE24       8       8       0   .init       
+     zero1                                     EE2C       B      11       0   .init       
+     velmenos                                  EE37       8       8       0   .init       
+     positivo                                  EE3F       6       6       0   .init       
+     carmais                                   EE45       8       8       0   .init       
+     positivo1                                 EE4D       B      11       0   .init       
+     negativo                                  EE58       3       3       0   .init       
+     carmenos                                  EE5B       8       8       0   .init       
+     negativo1                                 EE63       9       9       0   .init       
+     zeradora                                  EE6C      10      16       0   .init       
+     vel                                       EE7C      1F      31       0   .init       
+     carp                                      EE9B       4       4       0   .init       
+     cari                                      EE9F       4       4       0   .init       
+     car1                                      EEA3       6       6       0   .init       
+     velp                                      EEA9       5       5       0   .init       
+     veli                                      EEAE       5       5       0   .init       
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+_Startup                  USES AUX 
+control                   USES AUX 
+zero                      USES AUX 
+zero1                     USES AUX 
+positivo                  USES AUX 
+positivo1                 USES AUX 
+negativo                  USES AUX 
+negativo1                 USES AUX 
+zeradora                  USES AUX 
+vel                       USES control 
+carp                      USES AUX 
+cari                      USES AUX 
+car1                      USES AUX 
+velp                      USES AUX control 
+veli                      USES AUX control 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- _Startup            
+      
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 2
+Total size of all blocks to be downloaded: 181
+

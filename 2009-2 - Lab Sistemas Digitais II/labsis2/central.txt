@@ -1,0 +1,33 @@
+PTB 7	Entrada 2 da rua 4 (de velocidade)
+PTB 6	Entrada 1 da rua 4 (de velocidade)
+PTB 5	Entrada 2 da rua 3 (de velocidade)
+PTB 4	Entrada 1 da rua 3 (de velocidade)
+PTB 3	Entrada 2 da rua 2 (de velocidade)
+PTB 2	Entrada 1 da rua 2 (de velocidade)
+PTB 1	Entrada 2 da rua 1 (de velocidade)
+PTB 0	Entrada 1 da rua 1 (de velocidade)
+PTA 5	Saida 3 para ruas (carros)
+PTA 4	Clock para ruas
+PTA 3	Entrada das ruas 2 e 4 (da porta OR)
+PTA 2	Entrada das ruas 1 e 3 (da porta OR)
+PTA 1	Saida 2 para ruas (velocidade)
+PTA 0	Saida 1 para ruas (velocidade)
+
+
+
+tabela das entradas
+
+
+Entrada	velo	2	1
+
+		0	0 default
+		0	1 default
+		1	0 default
+		1	1 velo + rapido
+
+Entrada	 ruas	p	i
+
+		0	0	default
+		0	1	Velo + carros impar
+		1	0	velo + carros par
+		1	1	default
