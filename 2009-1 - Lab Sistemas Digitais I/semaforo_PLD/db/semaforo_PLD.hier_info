@@ -1,0 +1,16 @@
+|semaforo_PLD
+D => Sc~0.IN0
+D => Sb~0.IN0
+D => Sa~2.IN1
+A => Sb~0.IN1
+A => Sa~0.IN0
+B => Sc~0.IN1
+B => Sa~3.IN0
+B => Sa~1.IN1
+C => Sc~1.IN0
+C => Sa~4.IN1
+Sa <= Sa~5.DB_MAX_OUTPUT_PORT_TYPE
+Sb <= Sb~1.DB_MAX_OUTPUT_PORT_TYPE
+Sc <= Sc~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
