@@ -1,0 +1,23 @@
+|Controlador_de_processo_fabril
+Aquecedor <= inst.DB_MAX_OUTPUT_PORT_TYPE
+P2 => inst13.IN0
+P2 => inst14.IN1
+P2 => inst19.IN0
+P3 => inst12.IN0
+P1 => inst14.IN0
+P1 => inst15.IN0
+V1 => inst10.IN0
+V1 => inst8.IN0
+V1 => inst16.IN0
+V2 => inst11.IN0
+V3 => inst8.IN1
+V3 => inst20.IN0
+T2 => inst6.IN0
+T2 => inst5.IN1
+T2 => inst21.IN0
+T3 => inst1.IN0
+T1 => inst4.IN0
+T1 => inst17.IN0
+Alarme <= inst18.DB_MAX_OUTPUT_PORT_TYPE
+
+

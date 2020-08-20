@@ -1,0 +1,581 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+
+/*
+Copyright (C) 1991-2008 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+
+HEADER
+{
+	VERSION = 1;
+	TIME_UNIT = ns;
+	PRINT_OPTIONS = "Print_options_version 6\
+range_start 0ps\
+range_end 512.0us\
+width 1\
+names_percentage 25\
+comments 1\
+grid_lines 1\
+time_bars 1\
+name_every_page 0\
+expand_groups 0\
+print_all 1\
+print_row_height 100";
+	DATA_OFFSET = 0.0;
+	DATA_DURATION = 512000.0;
+	SIMULATION_TIME = 512000.0;
+	GRID_PHASE = 0.0;
+	GRID_PERIOD = 10.0;
+	GRID_DUTY_CYCLE = 50;
+}
+
+SIGNAL("P1")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("P2")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("P3")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("T1")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("T2")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("T3")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("V1")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("V2")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("V3")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("Alarme")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("Aquecedor")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+GROUP("P")
+{
+	MEMBERS = "P1", "P2", "P3";
+}
+
+GROUP("T")
+{
+	MEMBERS = "T1", "T2", "T3";
+}
+
+GROUP("V")
+{
+	MEMBERS = "V1", "V2", "V3";
+}
+
+TRANSITION_LIST("P1")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 256;
+			LEVEL 0 FOR 1000.0;
+			LEVEL 1 FOR 1000.0;
+		}
+	}
+}
+
+TRANSITION_LIST("P2")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 128;
+			LEVEL 0 FOR 2000.0;
+			LEVEL 1 FOR 2000.0;
+		}
+	}
+}
+
+TRANSITION_LIST("P3")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 64;
+			LEVEL 0 FOR 4000.0;
+			LEVEL 1 FOR 4000.0;
+		}
+	}
+}
+
+TRANSITION_LIST("T1")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 32;
+			LEVEL 0 FOR 8000.0;
+			LEVEL 1 FOR 8000.0;
+		}
+	}
+}
+
+TRANSITION_LIST("T2")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 16;
+			LEVEL 0 FOR 16000.0;
+			LEVEL 1 FOR 16000.0;
+		}
+	}
+}
+
+TRANSITION_LIST("T3")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 8;
+			LEVEL 0 FOR 32000.0;
+			LEVEL 1 FOR 32000.0;
+		}
+	}
+}
+
+TRANSITION_LIST("V1")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 4;
+			LEVEL 0 FOR 64000.0;
+			LEVEL 1 FOR 64000.0;
+		}
+	}
+}
+
+TRANSITION_LIST("V2")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 0 FOR 128000.0;
+			LEVEL 1 FOR 128000.0;
+		}
+	}
+}
+
+TRANSITION_LIST("V3")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 256000.0;
+			LEVEL 1 FOR 256000.0;
+		}
+	}
+}
+
+TRANSITION_LIST("Alarme")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1008.19;
+		LEVEL 1 FOR 1000.0;
+		LEVEL 0 FOR 6001.321;
+		LEVEL 1 FOR 8000.0;
+		LEVEL 0 FOR 998.679;
+		NODE
+		{
+			REPEAT = 5;
+			LEVEL 1 FOR 1000.0;
+			LEVEL 0 FOR 7000.0;
+		}
+		LEVEL 1 FOR 1000.0;
+		LEVEL 0 FOR 6000.226;
+		LEVEL 1 FOR 63999.358;
+		LEVEL 0 FOR 1000.416;
+		LEVEL 1 FOR 1000.0;
+		LEVEL 0 FOR 6001.321;
+		LEVEL 1 FOR 8000.0;
+		LEVEL 0 FOR 998.679;
+		NODE
+		{
+			REPEAT = 6;
+			LEVEL 1 FOR 1000.0;
+			LEVEL 0 FOR 7000.0;
+		}
+		LEVEL 1 FOR 1000.0;
+		LEVEL 0 FOR 6001.321;
+		LEVEL 1 FOR 8000.0;
+		LEVEL 0 FOR 998.679;
+		NODE
+		{
+			REPEAT = 5;
+			LEVEL 1 FOR 1000.0;
+			LEVEL 0 FOR 7000.0;
+		}
+		LEVEL 1 FOR 1000.0;
+		LEVEL 0 FOR 5999.584;
+		LEVEL 1 FOR 0.847;
+		LEVEL 0 FOR 999.569;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 1 FOR 1000.0;
+			LEVEL 0 FOR 6001.321;
+			LEVEL 1 FOR 8000.0;
+			LEVEL 0 FOR 998.679;
+			NODE
+			{
+				REPEAT = 6;
+				LEVEL 1 FOR 1000.0;
+				LEVEL 0 FOR 7000.0;
+			}
+		}
+		LEVEL 1 FOR 1000.0;
+		LEVEL 0 FOR 6001.321;
+		LEVEL 1 FOR 8000.0;
+		LEVEL 0 FOR 998.679;
+		NODE
+		{
+			REPEAT = 6;
+			LEVEL 1 FOR 1000.0;
+			LEVEL 0 FOR 7000.0;
+		}
+		LEVEL 1 FOR 1000.0;
+		LEVEL 0 FOR 6001.321;
+		LEVEL 1 FOR 8000.0;
+		LEVEL 0 FOR 998.679;
+		NODE
+		{
+			REPEAT = 5;
+			LEVEL 1 FOR 1000.0;
+			LEVEL 0 FOR 7000.0;
+		}
+		LEVEL 1 FOR 1000.0;
+		LEVEL 0 FOR 5991.81;
+	}
+}
+
+TRANSITION_LIST("Aquecedor")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 82010.105;
+		LEVEL 1 FOR 1999.648;
+		LEVEL 0 FOR 3000.0;
+		LEVEL 1 FOR 1000.352;
+		LEVEL 0 FOR 2000.0;
+		LEVEL 1 FOR 1999.648;
+		LEVEL 0 FOR 3000.0;
+		LEVEL 1 FOR 1000.352;
+		LEVEL 0 FOR 18000.0;
+		LEVEL 1 FOR 1999.648;
+		LEVEL 0 FOR 3000.0;
+		LEVEL 1 FOR 1000.352;
+		LEVEL 0 FOR 218000.0;
+		LEVEL 1 FOR 1999.648;
+		LEVEL 0 FOR 3000.0;
+		LEVEL 1 FOR 1000.352;
+		LEVEL 0 FOR 2000.0;
+		LEVEL 1 FOR 1999.648;
+		LEVEL 0 FOR 3000.0;
+		LEVEL 1 FOR 1000.352;
+		LEVEL 0 FOR 18000.0;
+		LEVEL 1 FOR 1999.648;
+		LEVEL 0 FOR 3000.0;
+		LEVEL 1 FOR 1000.352;
+		LEVEL 0 FOR 90000.0;
+		LEVEL 1 FOR 1999.648;
+		LEVEL 0 FOR 3000.0;
+		LEVEL 1 FOR 1000.352;
+		LEVEL 0 FOR 2000.0;
+		LEVEL 1 FOR 1999.648;
+		LEVEL 0 FOR 3000.0;
+		LEVEL 1 FOR 1000.352;
+		LEVEL 0 FOR 18000.0;
+		LEVEL 1 FOR 1999.648;
+		LEVEL 0 FOR 3000.0;
+		LEVEL 1 FOR 1000.352;
+		LEVEL 0 FOR 7989.895;
+	}
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "P";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 0;
+	TREE_LEVEL = 0;
+	GRAY_CODE = ON;
+	CHILDREN = 1, 2, 3;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "P1";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 1;
+	TREE_LEVEL = 1;
+	PARENT = 0;
+	GRAY_CODE = ON;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "P2";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 2;
+	TREE_LEVEL = 1;
+	PARENT = 0;
+	GRAY_CODE = ON;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "P3";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 3;
+	TREE_LEVEL = 1;
+	PARENT = 0;
+	GRAY_CODE = ON;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "T";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 4;
+	TREE_LEVEL = 0;
+	GRAY_CODE = ON;
+	CHILDREN = 5, 6, 7;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "T1";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 5;
+	TREE_LEVEL = 1;
+	PARENT = 4;
+	GRAY_CODE = ON;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "T2";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 6;
+	TREE_LEVEL = 1;
+	PARENT = 4;
+	GRAY_CODE = ON;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "T3";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 7;
+	TREE_LEVEL = 1;
+	PARENT = 4;
+	GRAY_CODE = ON;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "V";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 8;
+	TREE_LEVEL = 0;
+	GRAY_CODE = ON;
+	CHILDREN = 9, 10, 11;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "V1";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 9;
+	TREE_LEVEL = 1;
+	PARENT = 8;
+	GRAY_CODE = ON;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "V2";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 10;
+	TREE_LEVEL = 1;
+	PARENT = 8;
+	GRAY_CODE = ON;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "V3";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 11;
+	TREE_LEVEL = 1;
+	PARENT = 8;
+	GRAY_CODE = ON;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "Alarme";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 12;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "Aquecedor";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 13;
+	TREE_LEVEL = 0;
+}
+
+TIME_BAR
+{
+	TIME = 505600000;
+	MASTER = TRUE;
+}
+;

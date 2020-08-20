@@ -1,0 +1,15 @@
+Analysis & Synthesis Status : Successful - Tue Mar 17 14:12:27 2009
+Quartus II Version : 8.1 Build 163 10/28/2008 SJ Web Edition
+Revision Name : Controlador_de_processo_fabril
+Top-level Entity Name : Controlador_de_processo_fabril
+Family : Stratix II
+Logic utilization : N/A
+    Combinational ALUTs : 4
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 11
+Total virtual pins : 0
+Total block memory bits : 0
+DSP block 9-bit elements : 0
+Total PLLs : 0
+Total DLLs : 0
