@@ -1,0 +1,19 @@
+7 reles (12 V) modelo 30.22 finder
+
+7 acopladores 4N25
+
+7 soquetes 6 pinos
+
+7 soquetes 16 pinos
+
+2 conectores db9 (macho)
+
+1 cabo serial femea-femea
+
+7 diodos IN4007
+
+7 resistores 180 ohm 1/8 W
+
+15 conectores triplos azul
+
+5 conectores duplos azul
