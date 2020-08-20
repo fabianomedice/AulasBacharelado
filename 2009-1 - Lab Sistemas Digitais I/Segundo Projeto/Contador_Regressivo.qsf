@@ -1,0 +1,89 @@
+# Copyright (C) 1991-2008 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+
+
+# The default values for assignments are stored in the file
+#		Contador_Regressivo_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+set_global_assignment -name FAMILY MAX7000S
+set_global_assignment -name DEVICE "EPM7064SLC44-10"
+set_global_assignment -name TOP_LEVEL_ENTITY Contador_Regressivo
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 8.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:40:11  MAY 08, 2009"
+set_global_assignment -name LAST_QUARTUS_VERSION 9.0
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
+set_global_assignment -name SOURCE_FILE count10.cmp
+set_global_assignment -name QIP_FILE count10.qip
+set_global_assignment -name VHDL_FILE count10.vhd
+set_global_assignment -name SOURCE_FILE count6.cmp
+set_global_assignment -name QIP_FILE count6.qip
+set_global_assignment -name VHDL_FILE count6.vhd
+set_global_assignment -name SOURCE_FILE FlipFlopT.cmp
+set_global_assignment -name QIP_FILE FlipFlopT.qip
+set_global_assignment -name VHDL_FILE FlipFlopT.vhd
+set_global_assignment -name SOURCE_FILE reg10.cmp
+set_global_assignment -name QIP_FILE reg10.qip
+set_global_assignment -name VHDL_FILE reg10.vhd
+set_global_assignment -name SOURCE_FILE reg6.cmp
+set_global_assignment -name QIP_FILE reg6.qip
+set_global_assignment -name SOURCE_FILE start_stop.cmp
+set_global_assignment -name QIP_FILE start_stop.qip
+set_global_assignment -name VHDL_FILE start_stop.vhd
+set_global_assignment -name VHDL_FILE reg6.vhd
+set_global_assignment -name BDF_FILE Contador_Regressivo.bdf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Contador_Regressivo.vwf
+set_global_assignment -name BDF_FILE BCD4.bdf
+set_global_assignment -name BDF_FILE BCD3.bdf
+set_global_assignment -name OPTIMIZE_HOLD_TIMING OFF
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name FMAX_REQUIREMENT "1 MHz" -section_id clock
+set_instance_assignment -name CLOCK_SETTINGS clock -to clock
+set_global_assignment -name QIP_FILE div10.qip
+set_global_assignment -name MISC_FILE "E:/Lab Sist Digitais I/Segundo Projeto/Contador_Regressivo.dpf"
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+set_location_assignment PIN_17 -to displaya[0]
+set_location_assignment PIN_6 -to displayc[2]
+set_location_assignment PIN_19 -to dado_unimin
+set_location_assignment PIN_27 -to return
+set_location_assignment PIN_25 -to displayd[1]
+set_location_assignment PIN_14 -to displayb[3]
+set_location_assignment PIN_9 -to displaya[1]
+set_location_assignment PIN_43 -to clock
+set_location_assignment PIN_4 -to LEDamarelo
+set_location_assignment PIN_34 -to displayc[1]
+set_location_assignment PIN_41 -to colocador_desmin
+set_location_assignment PIN_18 -to displayb[0]
+set_location_assignment PIN_2 -to colocador_uniseg
+set_location_assignment PIN_8 -to displayd[0]
+set_location_assignment PIN_26 -to colocador_unimin
+set_location_assignment PIN_21 -to displayb[2]
+set_location_assignment PIN_40 -to start/pause
+set_location_assignment PIN_28 -to displayd[2]
+set_location_assignment PIN_37 -to colocador_desseg
+set_location_assignment PIN_31 -to Reset_Universal
+set_location_assignment PIN_5 -to displayc[0]
+set_location_assignment PIN_12 -to displaya[2]
+set_location_assignment PIN_44 -to dado_desmin
+set_location_assignment PIN_39 -to dado_uniseg
+set_location_assignment PIN_16 -to LEDvermelho
+set_location_assignment PIN_20 -to displayb[1]
+set_location_assignment PIN_29 -to dado_desseg
+set_location_assignment PIN_11 -to displayd[3]

@@ -1,0 +1,116 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 7.000 ns
+From           : dado_uniseg
+To             : reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]
+From Clock     : --
+To Clock       : colocador_uniseg
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 26.000 ns
+From           : FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]
+To             : LEDamarelo
+From Clock     : clock
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 3.000 ns
+From           : dado_desseg
+To             : reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[2]
+From Clock     : --
+To Clock       : colocador_desseg
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clock'
+Slack          : 974.000 ns
+Required Time  : 1.00 MHz ( period = 1000.000 ns )
+Actual Time    : 38.46 MHz ( period = 26.000 ns )
+From           : FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]
+To             : FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]
+From Clock     : clock
+To Clock       : clock
+Failed Paths   : 0
+
+Type           : Clock Setup: 'colocador_uniseg'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 100.00 MHz ( period = 10.000 ns )
+From           : reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[1]
+To             : reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[0]
+From Clock     : colocador_uniseg
+To Clock       : colocador_uniseg
+Failed Paths   : 0
+
+Type           : Clock Setup: 'start/pause'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 100.00 MHz ( period = 10.000 ns )
+From           : start_stop:inst5|lpm_ff:lpm_ff_component|dffs[0]
+To             : start_stop:inst5|lpm_ff:lpm_ff_component|dffs[0]
+From Clock     : start/pause
+To Clock       : start/pause
+Failed Paths   : 0
+
+Type           : Clock Setup: 'colocador_desmin'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 100.00 MHz ( period = 10.000 ns )
+From           : reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[1]
+To             : reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[0]
+From Clock     : colocador_desmin
+To Clock       : colocador_desmin
+Failed Paths   : 0
+
+Type           : Clock Setup: 'colocador_unimin'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 100.00 MHz ( period = 10.000 ns )
+From           : reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[1]
+To             : reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[0]
+From Clock     : colocador_unimin
+To Clock       : colocador_unimin
+Failed Paths   : 0
+
+Type           : Clock Setup: 'colocador_desseg'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 100.00 MHz ( period = 10.000 ns )
+From           : reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[1]
+To             : reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[0]
+From Clock     : colocador_desseg
+To Clock       : colocador_desseg
+Failed Paths   : 0
+
+Type           : Clock Hold: 'clock'
+Slack          : -11.000 ns
+Required Time  : 1.00 MHz ( period = 1000.000 ns )
+Actual Time    : N/A
+From           : FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]
+To             : FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]
+From Clock     : clock
+To Clock       : clock
+Failed Paths   : 1
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 1
+
+--------------------------------------------------------------------------------------
+

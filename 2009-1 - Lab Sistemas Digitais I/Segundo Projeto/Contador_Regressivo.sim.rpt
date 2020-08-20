@@ -1,0 +1,283 @@
+Simulator report for Contador_Regressivo
+Tue Jun 02 14:37:03 2009
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------+
+; Simulator Summary                            ;
++-----------------------------+----------------+
+; Type                        ; Value          ;
++-----------------------------+----------------+
+; Simulation Start Time       ; 0 ps           ;
+; Simulation End Time         ; 3600.0 s       ;
+; Simulation Netlist Size     ; 93 nodes       ;
+; Simulation Coverage         ;      61.11 %   ;
+; Total Number of Transitions ; 140553         ;
+; Simulation Breakpoints      ; 0              ;
+; Family                      ; MAX7000S       ;
+; Device                      ; EPM7064SLC44-5 ;
++-----------------------------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                      ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Option                                                                                     ; Setting    ; Default Value ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Simulation mode                                                                            ; Timing     ; Timing        ;
+; Start time                                                                                 ; 0 ns       ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF       ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On         ; On            ;
+; Check outputs                                                                              ; Off        ; Off           ;
+; Report simulation coverage                                                                 ; On         ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On         ; On            ;
+; Display missing 1-value coverage report                                                    ; On         ; On            ;
+; Display missing 0-value coverage report                                                    ; On         ; On            ;
+; Detect setup and hold time violations                                                      ; Off        ; Off           ;
+; Detect glitches                                                                            ; Off        ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off        ; Off           ;
+; Generate Signal Activity File                                                              ; Off        ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off        ; Off           ;
+; Group bus channels in simulation results                                                   ; Off        ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On         ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off        ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off        ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto       ; Auto          ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      61.11 % ;
+; Total nodes checked                                 ; 93           ;
+; Total output ports checked                          ; 90           ;
+; Total output ports with complete 1/0-value coverage ; 55           ;
+; Total output ports with no 1/0-value coverage       ; 32           ;
+; Total output ports with no 1-value coverage         ; 33           ;
+; Total output ports with no 0-value coverage         ; 34           ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                                                                                                        ;
++--------------------------------------------------------------------------------+--------------------------------------------------------------------------------+------------------+
+; Node Name                                                                      ; Output Port Name                                                               ; Output Port Type ;
++--------------------------------------------------------------------------------+--------------------------------------------------------------------------------+------------------+
+; |Contador_Regressivo|reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[2]   ; |Contador_Regressivo|reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[2]   ; dataout          ;
+; |Contador_Regressivo|div10:inst8|lpm_counter:lpm_counter_component|dffs[0]     ; |Contador_Regressivo|div10:inst8|lpm_counter:lpm_counter_component|dffs[0]     ; dataout          ;
+; |Contador_Regressivo|reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[1]   ; |Contador_Regressivo|reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[1]   ; dataout          ;
+; |Contador_Regressivo|div10:inst8|lpm_counter:lpm_counter_component|dffs[2]     ; |Contador_Regressivo|div10:inst8|lpm_counter:lpm_counter_component|dffs[2]     ; dataout          ;
+; |Contador_Regressivo|div10:inst8|lpm_counter:lpm_counter_component|dffs[3]     ; |Contador_Regressivo|div10:inst8|lpm_counter:lpm_counter_component|dffs[3]     ; dataout          ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[0]    ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[0]    ; dataout          ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[0]~15 ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[0]~15 ; dataout          ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[2]    ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[2]    ; dataout          ;
+; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[0]   ; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[0]   ; dataout          ;
+; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[2]   ; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[2]   ; dataout          ;
+; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[3]   ; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[3]   ; dataout          ;
+; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[0]    ; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[0]    ; dataout          ;
+; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[1]~18 ; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[1]~18 ; dataout          ;
+; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[2]~20 ; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[2]~20 ; dataout          ;
+; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[0]   ; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[0]   ; dataout          ;
+; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[1]   ; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[1]   ; dataout          ;
+; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[2]   ; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[2]   ; dataout          ;
+; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[3]   ; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[3]   ; dataout          ;
+; |Contador_Regressivo|inst2~4                                                   ; |Contador_Regressivo|inst2~4                                                   ; dataout          ;
+; |Contador_Regressivo|FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]          ; |Contador_Regressivo|FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]          ; dataout          ;
+; |Contador_Regressivo|inst49~1                                                  ; |Contador_Regressivo|inst49~1                                                  ; dataout          ;
+; |Contador_Regressivo|inst15~0                                                  ; |Contador_Regressivo|inst15~0                                                  ; dataout          ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|_~81       ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|_~81       ; pexpout          ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|_~88       ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|_~88       ; pexpout          ;
+; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|_~105     ; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|_~105     ; pexpout          ;
+; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|_~111     ; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|_~111     ; pexpout          ;
+; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|_~105     ; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|_~105     ; pexpout          ;
+; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|_~107     ; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|_~107     ; pexpout          ;
+; |Contador_Regressivo|inst2~6sexp                                               ; |Contador_Regressivo|inst2~6sexp                                               ; dataout          ;
+; |Contador_Regressivo|clock                                                     ; |Contador_Regressivo|clock~corein                                              ; dataout          ;
+; |Contador_Regressivo|Reset_Universal                                           ; |Contador_Regressivo|Reset_Universal~corein                                    ; dataout          ;
+; |Contador_Regressivo|start/pause                                               ; |Contador_Regressivo|start/pause~corein                                        ; dataout          ;
+; |Contador_Regressivo|return                                                    ; |Contador_Regressivo|return~corein                                             ; dataout          ;
+; |Contador_Regressivo|colocador_uniseg                                          ; |Contador_Regressivo|colocador_uniseg~corein                                   ; dataout          ;
+; |Contador_Regressivo|colocador_desseg                                          ; |Contador_Regressivo|colocador_desseg~corein                                   ; dataout          ;
+; |Contador_Regressivo|colocador_unimin                                          ; |Contador_Regressivo|colocador_unimin~corein                                   ; dataout          ;
+; |Contador_Regressivo|colocador_desmin                                          ; |Contador_Regressivo|colocador_desmin~corein                                   ; dataout          ;
+; |Contador_Regressivo|dado_desmin                                               ; |Contador_Regressivo|dado_desmin~corein                                        ; dataout          ;
+; |Contador_Regressivo|displayc[0]                                               ; |Contador_Regressivo|displayc[0]                                               ; padio            ;
+; |Contador_Regressivo|displayc[1]                                               ; |Contador_Regressivo|displayc[1]                                               ; padio            ;
+; |Contador_Regressivo|displayc[2]                                               ; |Contador_Regressivo|displayc[2]                                               ; padio            ;
+; |Contador_Regressivo|displayb[0]                                               ; |Contador_Regressivo|displayb[0]                                               ; padio            ;
+; |Contador_Regressivo|displayb[1]                                               ; |Contador_Regressivo|displayb[1]                                               ; padio            ;
+; |Contador_Regressivo|displayb[2]                                               ; |Contador_Regressivo|displayb[2]                                               ; padio            ;
+; |Contador_Regressivo|displayb[3]                                               ; |Contador_Regressivo|displayb[3]                                               ; padio            ;
+; |Contador_Regressivo|displaya[0]                                               ; |Contador_Regressivo|displaya[0]                                               ; padio            ;
+; |Contador_Regressivo|displayd[0]                                               ; |Contador_Regressivo|displayd[0]                                               ; padio            ;
+; |Contador_Regressivo|displayd[1]                                               ; |Contador_Regressivo|displayd[1]                                               ; padio            ;
+; |Contador_Regressivo|displayd[2]                                               ; |Contador_Regressivo|displayd[2]                                               ; padio            ;
+; |Contador_Regressivo|displayd[3]                                               ; |Contador_Regressivo|displayd[3]                                               ; padio            ;
+; |Contador_Regressivo|LEDvermelho                                               ; |Contador_Regressivo|LEDvermelho                                               ; padio            ;
+; |Contador_Regressivo|LEDamarelo                                                ; |Contador_Regressivo|LEDamarelo                                                ; padio            ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[0]~27 ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[0]~27 ; dataout          ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[0]~28 ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[0]~28 ; dataout          ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[0]~29 ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[0]~29 ; dataout          ;
++--------------------------------------------------------------------------------+--------------------------------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                                                                                                             ;
++---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+------------------+
+; Node Name                                                                       ; Output Port Name                                                                ; Output Port Type ;
++---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+------------------+
+; |Contador_Regressivo|reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[2]    ; |Contador_Regressivo|reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[2]    ; dataout          ;
+; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[3]    ; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[3]    ; dataout          ;
+; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]     ; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]     ; dataout          ;
+; |Contador_Regressivo|reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[1]    ; |Contador_Regressivo|reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[1]    ; dataout          ;
+; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[2]    ; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[2]    ; dataout          ;
+; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[2]     ; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[2]     ; dataout          ;
+; |Contador_Regressivo|reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[0]    ; |Contador_Regressivo|reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[0]    ; dataout          ;
+; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[1]    ; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[1]    ; dataout          ;
+; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[1]     ; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[1]     ; dataout          ;
+; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[0]    ; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[0]    ; dataout          ;
+; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[0]     ; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[0]     ; dataout          ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[0]~16  ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[0]~16  ; dataout          ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[1]~18  ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[1]~18  ; dataout          ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[2]~20  ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[2]~20  ; dataout          ;
+; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[0]~21 ; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[0]~21 ; dataout          ;
+; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[1]~23 ; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[1]~23 ; dataout          ;
+; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[2]~25 ; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[2]~25 ; dataout          ;
+; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[3]~27 ; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[3]~27 ; dataout          ;
+; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[0]~16  ; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[0]~16  ; dataout          ;
+; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[1]     ; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[1]     ; dataout          ;
+; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[2]     ; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[2]     ; dataout          ;
+; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[0]~21 ; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[0]~21 ; dataout          ;
+; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[1]~23 ; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[1]~23 ; dataout          ;
+; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[2]~25 ; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[2]~25 ; dataout          ;
+; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[3]~26 ; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[3]~26 ; dataout          ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|_~86        ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|_~86        ; pexpout          ;
+; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|_~113      ; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|_~113      ; pexpout          ;
+; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|_~79        ; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|_~79        ; pexpout          ;
+; |Contador_Regressivo|dado_uniseg                                                ; |Contador_Regressivo|dado_uniseg~corein                                         ; dataout          ;
+; |Contador_Regressivo|dado_desseg                                                ; |Contador_Regressivo|dado_desseg~corein                                         ; dataout          ;
+; |Contador_Regressivo|dado_unimin                                                ; |Contador_Regressivo|dado_unimin~corein                                         ; dataout          ;
+; |Contador_Regressivo|displaya[1]                                                ; |Contador_Regressivo|displaya[1]                                                ; padio            ;
+; |Contador_Regressivo|displaya[2]                                                ; |Contador_Regressivo|displaya[2]                                                ; padio            ;
++---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                                                                                                             ;
++---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+------------------+
+; Node Name                                                                       ; Output Port Name                                                                ; Output Port Type ;
++---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+------------------+
+; |Contador_Regressivo|reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[2]    ; |Contador_Regressivo|reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[2]    ; dataout          ;
+; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[3]    ; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[3]    ; dataout          ;
+; |Contador_Regressivo|start_stop:inst5|lpm_ff:lpm_ff_component|dffs[0]           ; |Contador_Regressivo|start_stop:inst5|lpm_ff:lpm_ff_component|dffs[0]           ; dataout          ;
+; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]     ; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]     ; dataout          ;
+; |Contador_Regressivo|reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[1]    ; |Contador_Regressivo|reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[1]    ; dataout          ;
+; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[2]    ; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[2]    ; dataout          ;
+; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[2]     ; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[2]     ; dataout          ;
+; |Contador_Regressivo|reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[0]    ; |Contador_Regressivo|reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[0]    ; dataout          ;
+; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[1]    ; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[1]    ; dataout          ;
+; |Contador_Regressivo|reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[0]    ; |Contador_Regressivo|reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[0]    ; dataout          ;
+; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[1]     ; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[1]     ; dataout          ;
+; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[0]    ; |Contador_Regressivo|reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[0]    ; dataout          ;
+; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[0]     ; |Contador_Regressivo|reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[0]     ; dataout          ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[0]~16  ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[0]~16  ; dataout          ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[1]~18  ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[1]~18  ; dataout          ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[2]~20  ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|dffs[2]~20  ; dataout          ;
+; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[0]~21 ; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[0]~21 ; dataout          ;
+; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[1]~23 ; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[1]~23 ; dataout          ;
+; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[2]~25 ; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[2]~25 ; dataout          ;
+; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[3]~27 ; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|dffs[3]~27 ; dataout          ;
+; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[1]     ; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[1]     ; dataout          ;
+; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[2]     ; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|dffs[2]     ; dataout          ;
+; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[0]~21 ; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[0]~21 ; dataout          ;
+; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[1]~23 ; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[1]~23 ; dataout          ;
+; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[2]~25 ; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[2]~25 ; dataout          ;
+; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[3]~26 ; |Contador_Regressivo|count10:inst3|lpm_counter:lpm_counter_component|dffs[3]~26 ; dataout          ;
+; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|_~86        ; |Contador_Regressivo|count6:inst6|lpm_counter:lpm_counter_component|_~86        ; pexpout          ;
+; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|_~113      ; |Contador_Regressivo|count10:inst4|lpm_counter:lpm_counter_component|_~113      ; pexpout          ;
+; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|_~79        ; |Contador_Regressivo|count6:inst7|lpm_counter:lpm_counter_component|_~79        ; pexpout          ;
+; |Contador_Regressivo|dado_uniseg                                                ; |Contador_Regressivo|dado_uniseg~corein                                         ; dataout          ;
+; |Contador_Regressivo|dado_desseg                                                ; |Contador_Regressivo|dado_desseg~corein                                         ; dataout          ;
+; |Contador_Regressivo|dado_unimin                                                ; |Contador_Regressivo|dado_unimin~corein                                         ; dataout          ;
+; |Contador_Regressivo|displaya[1]                                                ; |Contador_Regressivo|displaya[1]                                                ; padio            ;
+; |Contador_Regressivo|displaya[2]                                                ; |Contador_Regressivo|displaya[2]                                                ; padio            ;
++---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 9.0 Build 132 02/25/2009 SJ Web Edition
+    Info: Processing started: Tue Jun 02 14:36:54 2009
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off Contador_Regressivo -c Contador_Regressivo
+Info: Using vector source file "E:/Lab Sist Digitais I/Segundo Projeto/Contador_Regressivo.vwf"
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      61.11 %
+Info: Number of transitions in simulation is 140553
+Info: Quartus II Simulator was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 113 megabytes
+    Info: Processing ended: Tue Jun 02 14:37:03 2009
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:07
+
+

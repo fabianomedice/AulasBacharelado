@@ -1,0 +1,834 @@
+Classic Timing Analyzer report for Contador_Regressivo
+Tue Jun 09 13:49:50 2009
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clock'
+  7. Clock Setup: 'colocador_desseg'
+  8. Clock Setup: 'colocador_unimin'
+  9. Clock Setup: 'colocador_desmin'
+ 10. Clock Setup: 'start/pause'
+ 11. Clock Setup: 'colocador_uniseg'
+ 12. Clock Hold: 'clock'
+ 13. tsu
+ 14. tco
+ 15. th
+ 16. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                                                                                       ;
++---------------------------------+------------+-----------------------------------+-----------------------------------+---------------------------------------------------------+---------------------------------------------------------+------------------+------------------+--------------+
+; Type                            ; Slack      ; Required Time                     ; Actual Time                       ; From                                                    ; To                                                      ; From Clock       ; To Clock         ; Failed Paths ;
++---------------------------------+------------+-----------------------------------+-----------------------------------+---------------------------------------------------------+---------------------------------------------------------+------------------+------------------+--------------+
+; Worst-case tsu                  ; N/A        ; None                              ; 7.000 ns                          ; dado_uniseg                                             ; reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]  ; --               ; colocador_uniseg ; 0            ;
+; Worst-case tco                  ; N/A        ; None                              ; 26.000 ns                         ; FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]        ; LEDamarelo                                              ; clock            ; --               ; 0            ;
+; Worst-case th                   ; N/A        ; None                              ; 3.000 ns                          ; dado_desseg                                             ; reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[2] ; --               ; colocador_desseg ; 0            ;
+; Clock Setup: 'clock'            ; 974.000 ns ; 1.00 MHz ( period = 1000.000 ns ) ; 38.46 MHz ( period = 26.000 ns )  ; FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]        ; FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]        ; clock            ; clock            ; 0            ;
+; Clock Setup: 'colocador_uniseg' ; N/A        ; None                              ; 100.00 MHz ( period = 10.000 ns ) ; reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[1]  ; reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[0]  ; colocador_uniseg ; colocador_uniseg ; 0            ;
+; Clock Setup: 'start/pause'      ; N/A        ; None                              ; 100.00 MHz ( period = 10.000 ns ) ; start_stop:inst5|lpm_ff:lpm_ff_component|dffs[0]        ; start_stop:inst5|lpm_ff:lpm_ff_component|dffs[0]        ; start/pause      ; start/pause      ; 0            ;
+; Clock Setup: 'colocador_desmin' ; N/A        ; None                              ; 100.00 MHz ( period = 10.000 ns ) ; reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[1] ; reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[0] ; colocador_desmin ; colocador_desmin ; 0            ;
+; Clock Setup: 'colocador_unimin' ; N/A        ; None                              ; 100.00 MHz ( period = 10.000 ns ) ; reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[1] ; reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[0] ; colocador_unimin ; colocador_unimin ; 0            ;
+; Clock Setup: 'colocador_desseg' ; N/A        ; None                              ; 100.00 MHz ( period = 10.000 ns ) ; reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[1] ; reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[0] ; colocador_desseg ; colocador_desseg ; 0            ;
+; Clock Hold: 'clock'             ; -11.000 ns ; 1.00 MHz ( period = 1000.000 ns ) ; N/A                               ; FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]        ; FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]        ; clock            ; clock            ; 1            ;
+; Total number of failed paths    ;            ;                                   ;                                   ;                                                         ;                                                         ;                  ;                  ; 1            ;
++---------------------------------+------------+-----------------------------------+-----------------------------------+---------------------------------------------------------+---------------------------------------------------------+------------------+------------------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                              ;
++---------------------------------------------------------------------+--------------------+------+-------+-------------+
+; Option                                                              ; Setting            ; From ; To    ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+-------+-------------+
+; Device Name                                                         ; EPM7064SLC44-10    ;      ;       ;             ;
+; Timing Models                                                       ; Final              ;      ;       ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;       ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;       ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;       ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;       ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;       ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;       ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;       ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;       ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;       ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;       ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;       ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;       ;             ;
+; Number of paths to report                                           ; 200                ;      ;       ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;       ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;       ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;       ;             ;
+; Perform Multicorner Analysis                                        ; Off                ;      ;       ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;       ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;       ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;       ;             ;
+; Clock Settings                                                      ; clock              ;      ; clock ;             ;
++---------------------------------------------------------------------+--------------------+------+-------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                              ;
++------------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name  ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++------------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clock            ; clock              ; User Pin ; 1.0 MHz          ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; colocador_desseg ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; colocador_unimin ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; colocador_desmin ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; start/pause      ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; colocador_uniseg ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++------------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clock'                                                                                                                                                                                                                                                           ;
++------------+-----------------------------------+---------------------------------------------------------+---------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack      ; Actual fmax (period)              ; From                                                    ; To                                                      ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++------------+-----------------------------------+---------------------------------------------------------+---------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; 974.000 ns ; 38.46 MHz ( period = 26.000 ns )  ; FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]        ; FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]        ; clock      ; clock    ; 1000.000 ns                 ; 980.000 ns                ; 6.000 ns                ;
+; 988.400 ns ; 86.21 MHz ( period = 11.600 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 7.600 ns                ;
+; 988.400 ns ; 86.21 MHz ( period = 11.600 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 7.600 ns                ;
+; 988.400 ns ; 86.21 MHz ( period = 11.600 ns )  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 7.600 ns                ;
+; 988.400 ns ; 86.21 MHz ( period = 11.600 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 7.600 ns                ;
+; 988.400 ns ; 86.21 MHz ( period = 11.600 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 7.600 ns                ;
+; 988.400 ns ; 86.21 MHz ( period = 11.600 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 7.600 ns                ;
+; 988.400 ns ; 86.21 MHz ( period = 11.600 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 7.600 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 989.200 ns ; 92.59 MHz ( period = 10.800 ns )  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.800 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; div10:inst8|lpm_counter:lpm_counter_component|dffs[2]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[2]   ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; div10:inst8|lpm_counter:lpm_counter_component|dffs[1]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[2]   ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; div10:inst8|lpm_counter:lpm_counter_component|dffs[0]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[2]   ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; div10:inst8|lpm_counter:lpm_counter_component|dffs[2]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[3]   ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; div10:inst8|lpm_counter:lpm_counter_component|dffs[3]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[3]   ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; div10:inst8|lpm_counter:lpm_counter_component|dffs[1]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[3]   ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; div10:inst8|lpm_counter:lpm_counter_component|dffs[0]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[3]   ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; div10:inst8|lpm_counter:lpm_counter_component|dffs[2]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[1]   ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; div10:inst8|lpm_counter:lpm_counter_component|dffs[3]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[1]   ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; div10:inst8|lpm_counter:lpm_counter_component|dffs[1]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[1]   ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; div10:inst8|lpm_counter:lpm_counter_component|dffs[0]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[1]   ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
+; 990.000 ns ; 100.00 MHz ( period = 10.000 ns ) ; div10:inst8|lpm_counter:lpm_counter_component|dffs[0]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[0]   ; clock      ; clock    ; 1000.000 ns                 ; 996.000 ns                ; 6.000 ns                ;
++------------+-----------------------------------+---------------------------------------------------------+---------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'colocador_desseg'                                                                                                                                                                                                                                                         ;
++-------+-----------------------------------+---------------------------------------------------------+---------------------------------------------------------+------------------+------------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)              ; From                                                    ; To                                                      ; From Clock       ; To Clock         ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+-----------------------------------+---------------------------------------------------------+---------------------------------------------------------+------------------+------------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 100.00 MHz ( period = 10.000 ns ) ; reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[2] ; reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[1] ; colocador_desseg ; colocador_desseg ; None                        ; None                      ; 6.000 ns                ;
+; N/A   ; 100.00 MHz ( period = 10.000 ns ) ; reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[1] ; reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[0] ; colocador_desseg ; colocador_desseg ; None                        ; None                      ; 6.000 ns                ;
++-------+-----------------------------------+---------------------------------------------------------+---------------------------------------------------------+------------------+------------------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'colocador_unimin'                                                                                                                                                                                                                                                         ;
++-------+-----------------------------------+---------------------------------------------------------+---------------------------------------------------------+------------------+------------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)              ; From                                                    ; To                                                      ; From Clock       ; To Clock         ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+-----------------------------------+---------------------------------------------------------+---------------------------------------------------------+------------------+------------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 100.00 MHz ( period = 10.000 ns ) ; reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[3] ; reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[2] ; colocador_unimin ; colocador_unimin ; None                        ; None                      ; 6.000 ns                ;
+; N/A   ; 100.00 MHz ( period = 10.000 ns ) ; reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[2] ; reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[1] ; colocador_unimin ; colocador_unimin ; None                        ; None                      ; 6.000 ns                ;
+; N/A   ; 100.00 MHz ( period = 10.000 ns ) ; reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[1] ; reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[0] ; colocador_unimin ; colocador_unimin ; None                        ; None                      ; 6.000 ns                ;
++-------+-----------------------------------+---------------------------------------------------------+---------------------------------------------------------+------------------+------------------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'colocador_desmin'                                                                                                                                                                                                                                                         ;
++-------+-----------------------------------+---------------------------------------------------------+---------------------------------------------------------+------------------+------------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)              ; From                                                    ; To                                                      ; From Clock       ; To Clock         ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+-----------------------------------+---------------------------------------------------------+---------------------------------------------------------+------------------+------------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 100.00 MHz ( period = 10.000 ns ) ; reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[2] ; reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[1] ; colocador_desmin ; colocador_desmin ; None                        ; None                      ; 6.000 ns                ;
+; N/A   ; 100.00 MHz ( period = 10.000 ns ) ; reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[1] ; reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[0] ; colocador_desmin ; colocador_desmin ; None                        ; None                      ; 6.000 ns                ;
++-------+-----------------------------------+---------------------------------------------------------+---------------------------------------------------------+------------------+------------------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'start/pause'                                                                                                                                                                                                                                      ;
++-------+-----------------------------------+--------------------------------------------------+--------------------------------------------------+-------------+-------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)              ; From                                             ; To                                               ; From Clock  ; To Clock    ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+-----------------------------------+--------------------------------------------------+--------------------------------------------------+-------------+-------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 100.00 MHz ( period = 10.000 ns ) ; start_stop:inst5|lpm_ff:lpm_ff_component|dffs[0] ; start_stop:inst5|lpm_ff:lpm_ff_component|dffs[0] ; start/pause ; start/pause ; None                        ; None                      ; 6.000 ns                ;
++-------+-----------------------------------+--------------------------------------------------+--------------------------------------------------+-------------+-------------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'colocador_uniseg'                                                                                                                                                                                                                                                       ;
++-------+-----------------------------------+--------------------------------------------------------+--------------------------------------------------------+------------------+------------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)              ; From                                                   ; To                                                     ; From Clock       ; To Clock         ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+-----------------------------------+--------------------------------------------------------+--------------------------------------------------------+------------------+------------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 100.00 MHz ( period = 10.000 ns ) ; reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3] ; reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[2] ; colocador_uniseg ; colocador_uniseg ; None                        ; None                      ; 6.000 ns                ;
+; N/A   ; 100.00 MHz ( period = 10.000 ns ) ; reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[2] ; reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[1] ; colocador_uniseg ; colocador_uniseg ; None                        ; None                      ; 6.000 ns                ;
+; N/A   ; 100.00 MHz ( period = 10.000 ns ) ; reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[1] ; reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[0] ; colocador_uniseg ; colocador_uniseg ; None                        ; None                      ; 6.000 ns                ;
++-------+-----------------------------------+--------------------------------------------------------+--------------------------------------------------------+------------------+------------------+-----------------------------+---------------------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'clock'                                                                                                                                                                                                                            ;
++---------------+---------------------------------------------------------+---------------------------------------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack ; From                                                    ; To                                                      ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++---------------+---------------------------------------------------------+---------------------------------------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; -11.000 ns    ; FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]        ; FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]        ; clock      ; clock    ; 0.000 ns                   ; 17.000 ns                  ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; div10:inst8|lpm_counter:lpm_counter_component|dffs[2]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[2]   ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; div10:inst8|lpm_counter:lpm_counter_component|dffs[1]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[2]   ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; div10:inst8|lpm_counter:lpm_counter_component|dffs[0]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[2]   ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; div10:inst8|lpm_counter:lpm_counter_component|dffs[2]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[3]   ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; div10:inst8|lpm_counter:lpm_counter_component|dffs[3]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[3]   ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; div10:inst8|lpm_counter:lpm_counter_component|dffs[1]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[3]   ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; div10:inst8|lpm_counter:lpm_counter_component|dffs[0]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[3]   ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; div10:inst8|lpm_counter:lpm_counter_component|dffs[2]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[1]   ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; div10:inst8|lpm_counter:lpm_counter_component|dffs[3]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[1]   ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; div10:inst8|lpm_counter:lpm_counter_component|dffs[1]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[1]   ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; div10:inst8|lpm_counter:lpm_counter_component|dffs[0]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[1]   ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.000 ns      ; div10:inst8|lpm_counter:lpm_counter_component|dffs[0]   ; div10:inst8|lpm_counter:lpm_counter_component|dffs[0]   ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.000 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 5.800 ns      ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 6.800 ns                 ;
+; 6.600 ns      ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; clock      ; clock    ; 0.000 ns                   ; 1.000 ns                   ; 7.600 ns                 ;
++---------------+---------------------------------------------------------+---------------------------------------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                          ;
++-------+--------------+------------+-------------+---------------------------------------------------------+------------------+
+; Slack ; Required tsu ; Actual tsu ; From        ; To                                                      ; To Clock         ;
++-------+--------------+------------+-------------+---------------------------------------------------------+------------------+
+; N/A   ; None         ; 7.000 ns   ; dado_uniseg ; reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]  ; colocador_uniseg ;
+; N/A   ; None         ; 2.000 ns   ; dado_desmin ; reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[2] ; colocador_desmin ;
+; N/A   ; None         ; 2.000 ns   ; dado_unimin ; reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[3] ; colocador_unimin ;
+; N/A   ; None         ; 2.000 ns   ; dado_desseg ; reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[2] ; colocador_desseg ;
++-------+--------------+------------+-------------+---------------------------------------------------------+------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                                    ;
++-------+--------------+------------+---------------------------------------------------------+-------------+------------+
+; Slack ; Required tco ; Actual tco ; From                                                    ; To          ; From Clock ;
++-------+--------------+------------+---------------------------------------------------------+-------------+------------+
+; N/A   ; None         ; 26.000 ns  ; FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]        ; LEDamarelo  ; clock      ;
+; N/A   ; None         ; 21.000 ns  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; LEDvermelho ; clock      ;
+; N/A   ; None         ; 21.000 ns  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; LEDvermelho ; clock      ;
+; N/A   ; None         ; 21.000 ns  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; LEDvermelho ; clock      ;
+; N/A   ; None         ; 21.000 ns  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; LEDvermelho ; clock      ;
+; N/A   ; None         ; 21.000 ns  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; LEDvermelho ; clock      ;
+; N/A   ; None         ; 21.000 ns  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; LEDvermelho ; clock      ;
+; N/A   ; None         ; 21.000 ns  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; LEDvermelho ; clock      ;
+; N/A   ; None         ; 21.000 ns  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; LEDvermelho ; clock      ;
+; N/A   ; None         ; 21.000 ns  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; LEDvermelho ; clock      ;
+; N/A   ; None         ; 21.000 ns  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; LEDvermelho ; clock      ;
+; N/A   ; None         ; 21.000 ns  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; LEDvermelho ; clock      ;
+; N/A   ; None         ; 21.000 ns  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; LEDvermelho ; clock      ;
+; N/A   ; None         ; 21.000 ns  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; LEDvermelho ; clock      ;
+; N/A   ; None         ; 21.000 ns  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; LEDvermelho ; clock      ;
+; N/A   ; None         ; 13.000 ns  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[3] ; displayd[3] ; clock      ;
+; N/A   ; None         ; 13.000 ns  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[2] ; displayd[2] ; clock      ;
+; N/A   ; None         ; 13.000 ns  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[1] ; displayd[1] ; clock      ;
+; N/A   ; None         ; 13.000 ns  ; count10:inst3|lpm_counter:lpm_counter_component|dffs[0] ; displayd[0] ; clock      ;
+; N/A   ; None         ; 13.000 ns  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[2]  ; displaya[2] ; clock      ;
+; N/A   ; None         ; 13.000 ns  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[1]  ; displaya[1] ; clock      ;
+; N/A   ; None         ; 13.000 ns  ; count6:inst7|lpm_counter:lpm_counter_component|dffs[0]  ; displaya[0] ; clock      ;
+; N/A   ; None         ; 13.000 ns  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[3] ; displayb[3] ; clock      ;
+; N/A   ; None         ; 13.000 ns  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[2] ; displayb[2] ; clock      ;
+; N/A   ; None         ; 13.000 ns  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[1] ; displayb[1] ; clock      ;
+; N/A   ; None         ; 13.000 ns  ; count10:inst4|lpm_counter:lpm_counter_component|dffs[0] ; displayb[0] ; clock      ;
+; N/A   ; None         ; 13.000 ns  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[2]  ; displayc[2] ; clock      ;
+; N/A   ; None         ; 13.000 ns  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[1]  ; displayc[1] ; clock      ;
+; N/A   ; None         ; 13.000 ns  ; count6:inst6|lpm_counter:lpm_counter_component|dffs[0]  ; displayc[0] ; clock      ;
++-------+--------------+------------+---------------------------------------------------------+-------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                                 ;
++---------------+-------------+-----------+-------------+---------------------------------------------------------+------------------+
+; Minimum Slack ; Required th ; Actual th ; From        ; To                                                      ; To Clock         ;
++---------------+-------------+-----------+-------------+---------------------------------------------------------+------------------+
+; N/A           ; None        ; 3.000 ns  ; dado_desmin ; reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[2] ; colocador_desmin ;
+; N/A           ; None        ; 3.000 ns  ; dado_unimin ; reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[3] ; colocador_unimin ;
+; N/A           ; None        ; 3.000 ns  ; dado_desseg ; reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[2] ; colocador_desseg ;
+; N/A           ; None        ; -2.000 ns ; dado_uniseg ; reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]  ; colocador_uniseg ;
++---------------+-------------+-----------+-------------+---------------------------------------------------------+------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Web Edition
+    Info: Processing started: Tue Jun 09 13:49:47 2009
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off Contador_Regressivo -c Contador_Regressivo
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Timing Analysis does not support the analysis of latches as synchronous elements for the currently selected device family
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "colocador_desseg" is an undefined clock
+    Info: Assuming node "colocador_unimin" is an undefined clock
+    Info: Assuming node "colocador_desmin" is an undefined clock
+    Info: Assuming node "start/pause" is an undefined clock
+    Info: Assuming node "colocador_uniseg" is an undefined clock
+Warning: Found 19 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected gated clock "inst49~1" as buffer
+    Info: Detected ripple clock "count10:inst4|lpm_counter:lpm_counter_component|dffs[1]" as buffer
+    Info: Detected ripple clock "count10:inst4|lpm_counter:lpm_counter_component|dffs[2]" as buffer
+    Info: Detected ripple clock "count10:inst3|lpm_counter:lpm_counter_component|dffs[2]" as buffer
+    Info: Detected ripple clock "count6:inst6|lpm_counter:lpm_counter_component|dffs[1]" as buffer
+    Info: Detected ripple clock "count6:inst6|lpm_counter:lpm_counter_component|dffs[2]" as buffer
+    Info: Detected ripple clock "count10:inst4|lpm_counter:lpm_counter_component|dffs[0]" as buffer
+    Info: Detected ripple clock "count10:inst4|lpm_counter:lpm_counter_component|dffs[3]" as buffer
+    Info: Detected ripple clock "count6:inst7|lpm_counter:lpm_counter_component|dffs[0]" as buffer
+    Info: Detected ripple clock "count6:inst7|lpm_counter:lpm_counter_component|dffs[1]" as buffer
+    Info: Detected ripple clock "count6:inst7|lpm_counter:lpm_counter_component|dffs[2]" as buffer
+    Info: Detected ripple clock "count10:inst3|lpm_counter:lpm_counter_component|dffs[3]" as buffer
+    Info: Detected ripple clock "count10:inst3|lpm_counter:lpm_counter_component|dffs[0]" as buffer
+    Info: Detected ripple clock "count10:inst3|lpm_counter:lpm_counter_component|dffs[1]" as buffer
+    Info: Detected ripple clock "count6:inst6|lpm_counter:lpm_counter_component|dffs[0]" as buffer
+    Info: Detected ripple clock "div10:inst8|lpm_counter:lpm_counter_component|dffs[2]" as buffer
+    Info: Detected ripple clock "div10:inst8|lpm_counter:lpm_counter_component|dffs[3]" as buffer
+    Info: Detected ripple clock "div10:inst8|lpm_counter:lpm_counter_component|dffs[1]" as buffer
+    Info: Detected ripple clock "div10:inst8|lpm_counter:lpm_counter_component|dffs[0]" as buffer
+Info: Slack time is 974.0 ns for clock "clock" between source register "FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]" and destination register "FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]"
+    Info: Fmax is 38.46 MHz (period= 26.0 ns)
+    Info: + Largest register to register requirement is 980.000 ns
+        Info: + Setup relationship between source and destination is 1000.000 ns
+            Info: + Latch edge is 1000.000 ns
+                Info: Clock period of Destination clock "clock" is 1000.000 ns with  offset of 0.000 ns and duty cycle of 50
+                Info: Multicycle Setup factor for Destination register is 1
+            Info: - Launch edge is 0.000 ns
+                Info: Clock period of Source clock "clock" is 1000.000 ns with  offset of 0.000 ns and duty cycle of 50
+                Info: Multicycle Setup factor for Source register is 1
+        Info: + Largest clock skew is -16.000 ns
+            Info: + Shortest clock path from clock "clock" to destination register is 6.500 ns
+                Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_43; Fanout = 5; CLK Node = 'clock'
+                Info: 2: + IC(0.000 ns) + CELL(5.000 ns) = 6.500 ns; Loc. = LC16; Fanout = 2; REG Node = 'FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]'
+                Info: Total cell delay = 6.500 ns ( 100.00 % )
+            Info: - Longest clock path from clock "clock" to source register is 22.500 ns
+                Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_43; Fanout = 5; CLK Node = 'clock'
+                Info: 2: + IC(0.000 ns) + CELL(2.000 ns) = 3.500 ns; Loc. = LC33; Fanout = 19; REG Node = 'div10:inst8|lpm_counter:lpm_counter_component|dffs[0]'
+                Info: 3: + IC(1.000 ns) + CELL(7.000 ns) = 11.500 ns; Loc. = LC35; Fanout = 45; REG Node = 'count10:inst3|lpm_counter:lpm_counter_component|dffs[1]'
+                Info: 4: + IC(1.000 ns) + CELL(5.000 ns) = 17.500 ns; Loc. = SEXP8; Fanout = 1; COMB Node = 'inst49~1'
+                Info: 5: + IC(0.000 ns) + CELL(5.000 ns) = 22.500 ns; Loc. = LC16; Fanout = 2; REG Node = 'FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]'
+                Info: Total cell delay = 20.500 ns ( 91.11 % )
+                Info: Total interconnect delay = 2.000 ns ( 8.89 % )
+        Info: - Micro clock to output delay of source is 2.000 ns
+        Info: - Micro setup delay of destination is 2.000 ns
+    Info: - Longest register to register delay is 6.000 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC16; Fanout = 2; REG Node = 'FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]'
+        Info: 2: + IC(0.000 ns) + CELL(6.000 ns) = 6.000 ns; Loc. = LC16; Fanout = 2; REG Node = 'FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]'
+        Info: Total cell delay = 6.000 ns ( 100.00 % )
+Info: Clock "colocador_desseg" has Internal fmax of 100.0 MHz between source register "reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[2]" and destination register "reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[1]" (period= 10.0 ns)
+    Info: + Longest register to register delay is 6.000 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC56; Fanout = 3; REG Node = 'reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[2]'
+        Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.000 ns; Loc. = LC12; Fanout = 3; REG Node = 'reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[1]'
+        Info: Total cell delay = 5.000 ns ( 83.33 % )
+        Info: Total interconnect delay = 1.000 ns ( 16.67 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "colocador_desseg" to destination register is 6.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.500 ns) = 0.500 ns; Loc. = PIN_37; Fanout = 3; CLK Node = 'colocador_desseg'
+            Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.500 ns; Loc. = LC12; Fanout = 3; REG Node = 'reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[1]'
+            Info: Total cell delay = 5.500 ns ( 84.62 % )
+            Info: Total interconnect delay = 1.000 ns ( 15.38 % )
+        Info: - Longest clock path from clock "colocador_desseg" to source register is 6.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.500 ns) = 0.500 ns; Loc. = PIN_37; Fanout = 3; CLK Node = 'colocador_desseg'
+            Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.500 ns; Loc. = LC56; Fanout = 3; REG Node = 'reg6:inst10|lpm_shiftreg:lpm_shiftreg_component|dffs[2]'
+            Info: Total cell delay = 5.500 ns ( 84.62 % )
+            Info: Total interconnect delay = 1.000 ns ( 15.38 % )
+    Info: + Micro clock to output delay of source is 2.000 ns
+    Info: + Micro setup delay of destination is 2.000 ns
+Info: Clock "colocador_unimin" has Internal fmax of 100.0 MHz between source register "reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[3]" and destination register "reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[2]" (period= 10.0 ns)
+    Info: + Longest register to register delay is 6.000 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC50; Fanout = 3; REG Node = 'reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[3]'
+        Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.000 ns; Loc. = LC32; Fanout = 3; REG Node = 'reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[2]'
+        Info: Total cell delay = 5.000 ns ( 83.33 % )
+        Info: Total interconnect delay = 1.000 ns ( 16.67 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "colocador_unimin" to destination register is 6.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.500 ns) = 0.500 ns; Loc. = PIN_26; Fanout = 4; CLK Node = 'colocador_unimin'
+            Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.500 ns; Loc. = LC32; Fanout = 3; REG Node = 'reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[2]'
+            Info: Total cell delay = 5.500 ns ( 84.62 % )
+            Info: Total interconnect delay = 1.000 ns ( 15.38 % )
+        Info: - Longest clock path from clock "colocador_unimin" to source register is 6.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.500 ns) = 0.500 ns; Loc. = PIN_26; Fanout = 4; CLK Node = 'colocador_unimin'
+            Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.500 ns; Loc. = LC50; Fanout = 3; REG Node = 'reg10:inst9|lpm_shiftreg:lpm_shiftreg_component|dffs[3]'
+            Info: Total cell delay = 5.500 ns ( 84.62 % )
+            Info: Total interconnect delay = 1.000 ns ( 15.38 % )
+    Info: + Micro clock to output delay of source is 2.000 ns
+    Info: + Micro setup delay of destination is 2.000 ns
+Info: Clock "colocador_desmin" has Internal fmax of 100.0 MHz between source register "reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[2]" and destination register "reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[1]" (period= 10.0 ns)
+    Info: + Longest register to register delay is 6.000 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC38; Fanout = 3; REG Node = 'reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[2]'
+        Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.000 ns; Loc. = LC43; Fanout = 3; REG Node = 'reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[1]'
+        Info: Total cell delay = 5.000 ns ( 83.33 % )
+        Info: Total interconnect delay = 1.000 ns ( 16.67 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "colocador_desmin" to destination register is 6.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.500 ns) = 0.500 ns; Loc. = PIN_41; Fanout = 3; CLK Node = 'colocador_desmin'
+            Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.500 ns; Loc. = LC43; Fanout = 3; REG Node = 'reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[1]'
+            Info: Total cell delay = 5.500 ns ( 84.62 % )
+            Info: Total interconnect delay = 1.000 ns ( 15.38 % )
+        Info: - Longest clock path from clock "colocador_desmin" to source register is 6.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.500 ns) = 0.500 ns; Loc. = PIN_41; Fanout = 3; CLK Node = 'colocador_desmin'
+            Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.500 ns; Loc. = LC38; Fanout = 3; REG Node = 'reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[2]'
+            Info: Total cell delay = 5.500 ns ( 84.62 % )
+            Info: Total interconnect delay = 1.000 ns ( 15.38 % )
+    Info: + Micro clock to output delay of source is 2.000 ns
+    Info: + Micro setup delay of destination is 2.000 ns
+Info: Clock "start/pause" has Internal fmax of 100.0 MHz between source register "start_stop:inst5|lpm_ff:lpm_ff_component|dffs[0]" and destination register "start_stop:inst5|lpm_ff:lpm_ff_component|dffs[0]" (period= 10.0 ns)
+    Info: + Longest register to register delay is 6.000 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC36; Fanout = 43; REG Node = 'start_stop:inst5|lpm_ff:lpm_ff_component|dffs[0]'
+        Info: 2: + IC(0.000 ns) + CELL(6.000 ns) = 6.000 ns; Loc. = LC36; Fanout = 43; REG Node = 'start_stop:inst5|lpm_ff:lpm_ff_component|dffs[0]'
+        Info: Total cell delay = 6.000 ns ( 100.00 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "start/pause" to destination register is 6.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.500 ns) = 0.500 ns; Loc. = PIN_40; Fanout = 1; CLK Node = 'start/pause'
+            Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.500 ns; Loc. = LC36; Fanout = 43; REG Node = 'start_stop:inst5|lpm_ff:lpm_ff_component|dffs[0]'
+            Info: Total cell delay = 5.500 ns ( 84.62 % )
+            Info: Total interconnect delay = 1.000 ns ( 15.38 % )
+        Info: - Longest clock path from clock "start/pause" to source register is 6.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.500 ns) = 0.500 ns; Loc. = PIN_40; Fanout = 1; CLK Node = 'start/pause'
+            Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.500 ns; Loc. = LC36; Fanout = 43; REG Node = 'start_stop:inst5|lpm_ff:lpm_ff_component|dffs[0]'
+            Info: Total cell delay = 5.500 ns ( 84.62 % )
+            Info: Total interconnect delay = 1.000 ns ( 15.38 % )
+    Info: + Micro clock to output delay of source is 2.000 ns
+    Info: + Micro setup delay of destination is 2.000 ns
+Info: Clock "colocador_uniseg" has Internal fmax of 100.0 MHz between source register "reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]" and destination register "reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[2]" (period= 10.0 ns)
+    Info: + Longest register to register delay is 6.000 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC46; Fanout = 3; REG Node = 'reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]'
+        Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.000 ns; Loc. = LC6; Fanout = 3; REG Node = 'reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[2]'
+        Info: Total cell delay = 5.000 ns ( 83.33 % )
+        Info: Total interconnect delay = 1.000 ns ( 16.67 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "colocador_uniseg" to destination register is 1.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_2; Fanout = 4; CLK Node = 'colocador_uniseg'
+            Info: 2: + IC(0.000 ns) + CELL(0.000 ns) = 1.500 ns; Loc. = LC6; Fanout = 3; REG Node = 'reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[2]'
+            Info: Total cell delay = 1.500 ns ( 100.00 % )
+        Info: - Longest clock path from clock "colocador_uniseg" to source register is 1.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_2; Fanout = 4; CLK Node = 'colocador_uniseg'
+            Info: 2: + IC(0.000 ns) + CELL(0.000 ns) = 1.500 ns; Loc. = LC46; Fanout = 3; REG Node = 'reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]'
+            Info: Total cell delay = 1.500 ns ( 100.00 % )
+    Info: + Micro clock to output delay of source is 2.000 ns
+    Info: + Micro setup delay of destination is 2.000 ns
+Info: Minimum slack time is -11.0 ns for clock "clock" between source register "FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]" and destination register "FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]"
+    Info: + Shortest register to register delay is 6.000 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC16; Fanout = 2; REG Node = 'FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]'
+        Info: 2: + IC(0.000 ns) + CELL(6.000 ns) = 6.000 ns; Loc. = LC16; Fanout = 2; REG Node = 'FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]'
+        Info: Total cell delay = 6.000 ns ( 100.00 % )
+    Info: - Smallest register to register requirement is 17.000 ns
+        Info: + Hold relationship between source and destination is 0.000 ns
+            Info: + Latch edge is 0.000 ns
+                Info: Clock period of Destination clock "clock" is 1000.000 ns with  offset of 0.000 ns and duty cycle of 50
+                Info: Multicycle Setup factor for Destination register is 1
+                Info: Multicycle Hold factor for Destination register is 1
+            Info: - Launch edge is 0.000 ns
+                Info: Clock period of Source clock "clock" is 1000.000 ns with  offset of 0.000 ns and duty cycle of 50
+                Info: Multicycle Setup factor for Source register is 1
+                Info: Multicycle Hold factor for Source register is 1
+        Info: + Smallest clock skew is 16.000 ns
+            Info: + Longest clock path from clock "clock" to destination register is 22.500 ns
+                Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_43; Fanout = 5; CLK Node = 'clock'
+                Info: 2: + IC(0.000 ns) + CELL(2.000 ns) = 3.500 ns; Loc. = LC33; Fanout = 19; REG Node = 'div10:inst8|lpm_counter:lpm_counter_component|dffs[0]'
+                Info: 3: + IC(1.000 ns) + CELL(7.000 ns) = 11.500 ns; Loc. = LC35; Fanout = 45; REG Node = 'count10:inst3|lpm_counter:lpm_counter_component|dffs[1]'
+                Info: 4: + IC(1.000 ns) + CELL(5.000 ns) = 17.500 ns; Loc. = SEXP8; Fanout = 1; COMB Node = 'inst49~1'
+                Info: 5: + IC(0.000 ns) + CELL(5.000 ns) = 22.500 ns; Loc. = LC16; Fanout = 2; REG Node = 'FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]'
+                Info: Total cell delay = 20.500 ns ( 91.11 % )
+                Info: Total interconnect delay = 2.000 ns ( 8.89 % )
+            Info: - Shortest clock path from clock "clock" to source register is 6.500 ns
+                Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_43; Fanout = 5; CLK Node = 'clock'
+                Info: 2: + IC(0.000 ns) + CELL(5.000 ns) = 6.500 ns; Loc. = LC16; Fanout = 2; REG Node = 'FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]'
+                Info: Total cell delay = 6.500 ns ( 100.00 % )
+        Info: - Micro clock to output delay of source is 2.000 ns
+        Info: + Micro hold delay of destination is 3.000 ns
+Warning: Can't achieve minimum setup and hold requirement clock along 1 path(s). See Report window for details.
+Info: tsu for register "reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]" (data pin = "dado_uniseg", clock pin = "colocador_uniseg") is 7.000 ns
+    Info: + Longest pin to register delay is 6.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.500 ns) = 0.500 ns; Loc. = PIN_39; Fanout = 1; PIN Node = 'dado_uniseg'
+        Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.500 ns; Loc. = LC46; Fanout = 3; REG Node = 'reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]'
+        Info: Total cell delay = 5.500 ns ( 84.62 % )
+        Info: Total interconnect delay = 1.000 ns ( 15.38 % )
+    Info: + Micro setup delay of destination is 2.000 ns
+    Info: - Shortest clock path from clock "colocador_uniseg" to destination register is 1.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_2; Fanout = 4; CLK Node = 'colocador_uniseg'
+        Info: 2: + IC(0.000 ns) + CELL(0.000 ns) = 1.500 ns; Loc. = LC46; Fanout = 3; REG Node = 'reg10:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[3]'
+        Info: Total cell delay = 1.500 ns ( 100.00 % )
+Info: tco from clock "clock" to destination pin "LEDamarelo" through register "FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]" is 26.000 ns
+    Info: + Longest clock path from clock "clock" to source register is 22.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_43; Fanout = 5; CLK Node = 'clock'
+        Info: 2: + IC(0.000 ns) + CELL(2.000 ns) = 3.500 ns; Loc. = LC33; Fanout = 19; REG Node = 'div10:inst8|lpm_counter:lpm_counter_component|dffs[0]'
+        Info: 3: + IC(1.000 ns) + CELL(7.000 ns) = 11.500 ns; Loc. = LC35; Fanout = 45; REG Node = 'count10:inst3|lpm_counter:lpm_counter_component|dffs[1]'
+        Info: 4: + IC(1.000 ns) + CELL(5.000 ns) = 17.500 ns; Loc. = SEXP8; Fanout = 1; COMB Node = 'inst49~1'
+        Info: 5: + IC(0.000 ns) + CELL(5.000 ns) = 22.500 ns; Loc. = LC16; Fanout = 2; REG Node = 'FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]'
+        Info: Total cell delay = 20.500 ns ( 91.11 % )
+        Info: Total interconnect delay = 2.000 ns ( 8.89 % )
+    Info: + Micro clock to output delay of source is 2.000 ns
+    Info: + Longest register to pin delay is 1.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC16; Fanout = 2; REG Node = 'FlipFlopT:inst45|lpm_ff:lpm_ff_component|dffs[0]'
+        Info: 2: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_4; Fanout = 0; PIN Node = 'LEDamarelo'
+        Info: Total cell delay = 1.500 ns ( 100.00 % )
+Info: th for register "reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[2]" (data pin = "dado_desmin", clock pin = "colocador_desmin") is 3.000 ns
+    Info: + Longest clock path from clock "colocador_desmin" to destination register is 6.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.500 ns) = 0.500 ns; Loc. = PIN_41; Fanout = 3; CLK Node = 'colocador_desmin'
+        Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.500 ns; Loc. = LC38; Fanout = 3; REG Node = 'reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[2]'
+        Info: Total cell delay = 5.500 ns ( 84.62 % )
+        Info: Total interconnect delay = 1.000 ns ( 15.38 % )
+    Info: + Micro hold delay of destination is 3.000 ns
+    Info: - Shortest pin to register delay is 6.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_44; Fanout = 1; PIN Node = 'dado_desmin'
+        Info: 2: + IC(0.000 ns) + CELL(5.000 ns) = 6.500 ns; Loc. = LC38; Fanout = 3; REG Node = 'reg6:inst11|lpm_shiftreg:lpm_shiftreg_component|dffs[2]'
+        Info: Total cell delay = 6.500 ns ( 100.00 % )
+Critical Warning: Timing requirements for slow timing model timing analysis were not met. See Report window for details.
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 127 megabytes
+    Info: Processing ended: Tue Jun 09 13:49:52 2009
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:01
+
+
