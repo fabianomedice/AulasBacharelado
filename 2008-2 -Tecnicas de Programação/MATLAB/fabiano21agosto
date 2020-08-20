@@ -1,0 +1,236 @@
+%Graf 01
+x = -5:0.1:5;
+y=x.^2;
+plot(x,y)
+title ('grafico da funcao y=x^2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+%Graf 02
+plot(x,y,'vr')
+title('grafico da funcao y=x^2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+%Graf 03
+plot(x,y,'g')
+title('grafico da funcao y=x^2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+%Graf 04
+plot(x,y,'--r')
+title('grafico da funcao y=x^2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+%Graf 05
+plot(x,y,':m')
+title('grafico da funcao y=x^2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+%Graf 06
+colordef black
+plot(x,y,':m')
+title('grafico da funcao y=x^2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+grid
+%Graf 07
+plot(x,y,'k')
+title('grafico da funcao y=x^2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+grid
+legend('parabola')
+%Graf 08
+plot(x,y,'k')
+title('grafico da funcao y=x^2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+grid
+legend('parabola',-1)
+colordef white
+plot(x,y,'k')
+title('grafico da funcao y=x^2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+grid
+legend('parabola',-1)
+help legend
+
+ LEGEND Graph legend.
+    LEGEND(string1,string2,string3, ...) puts a legend on the current plot
+    using the specified strings as labels. LEGEND works on line graphs,
+    bar graphs, pie graphs, ribbon plots, etc.  You can label any
+    solid-colored patch or surface object.  The fontsize and fontname for
+    the legend strings matches the axes fontsize and fontname.
+ 
+    LEGEND(H,string1,string2,string3, ...) puts a legend on the plot
+    containing the handles in the vector H using the specified strings as
+    labels for the corresponding handles.
+ 
+    LEGEND(M), where M is a string matrix or cell array of strings, and
+    LEGEND(H,M) where H is a vector of handles to lines and patches also
+    works.
+ 
+    LEGEND(AX,...) puts a legend on the axes with handle AX.
+ 
+    LEGEND OFF removes the legend from the current axes.
+    LEGEND(AX,'off') removes the legend from the axis AX.
+ 
+    LEGEND HIDE makes legend invisible.
+    LEGEND(AX,'hide') makes legend on axis AX invisible.
+    LEGEND SHOW makes legend visible.
+    LEGEND(AX,'show') makes legend on axis AX visible.
+ 
+    LEGEND BOXOFF sets appdata property legendboxon to 'off' making
+    legend background box invisible when the legend is visible.
+    LEGEND(AX,'boxoff') sets appdata property legendboxon to 'off for axis AX
+    making legend background box invisible when the legend is visible.
+    LEGEND BOXON sets appdata property legendboxon to 'on' making
+    legend background box visible when the legend is visible.
+    LEGEND(AX,'boxon') sets appdata property legendboxon to 'off for axis AX
+    making legend background box visible when the legend is visible.
+ 
+    LEGH = LEGEND returns the handle to legend on the current axes or
+    empty if none exists.
+ 
+    LEGEND with no arguments refreshes all the legends in the current
+    figure (if any).  LEGEND(LEGH) refreshes the specified legend.
+ 
+    LEGEND(...,Pos) places the legend in the specified
+    location:
+        0 = Automatic "best" placement (least conflict with data)
+        1 = Upper right-hand corner (default)
+        2 = Upper left-hand corner
+        3 = Lower left-hand corner
+        4 = Lower right-hand corner
+       -1 = To the right of the plot
+ 
+    To move the legend, press the left mouse button on the legend and drag
+    to the desired location. Double clicking on a label allows you to edit
+    the label.
+ 
+    [LEGH,OBJH,OUTH,OUTM] = LEGEND(...) returns a handle LEGH to the
+    legend axes; a vector OBJH containing handles for the text, lines,
+    and patches in the legend; a vector OUTH of handles to the
+    lines and patches in the plot; and a cell array OUTM containing
+    the text in the legend.
+ 
+    LEGEND will try to install a ResizeFcn on the figure if it hasn't been
+    defined before.  This resize function will try to keep the legend the
+    same size.
+ 
+    Examples:
+        x = 0:.2:12;
+        plot(x,bessel(1,x),x,bessel(2,x),x,bessel(3,x));
+        legend('First','Second','Third');
+        legend('First','Second','Third',-1)
+ 
+        b = bar(rand(10,5),'stacked'); colormap(summer); hold on
+        x = plot(1:10,5*rand(10,1),'marker','square','markersize',12,...
+                 'markeredgecolor','y','markerfacecolor',[.6 0 .6],...
+                 'linestyle','-','color','r','linewidth',2); hold off
+        legend([b,x],'Carrots','Peas','Peppers','Green Beans',...
+                  'Cucumbers','Eggplant')       
+ 
+    See also PLOT.
+
+%Graf 09
+z=-y
+
+z =
+
+  Columns 1 through 10 
+
+  -25.0000  -24.0100  -23.0400  -22.0900  -21.1600  -20.2500  -19.3600  -18.4900  -17.6400  -16.8100
+
+  Columns 11 through 20 
+
+  -16.0000  -15.2100  -14.4400  -13.6900  -12.9600  -12.2500  -11.5600  -10.8900  -10.2400   -9.6100
+
+  Columns 21 through 30 
+
+   -9.0000   -8.4100   -7.8400   -7.2900   -6.7600   -6.2500   -5.7600   -5.2900   -4.8400   -4.4100
+
+  Columns 31 through 40 
+
+   -4.0000   -3.6100   -3.2400   -2.8900   -2.5600   -2.2500   -1.9600   -1.6900   -1.4400   -1.2100
+
+  Columns 41 through 50 
+
+   -1.0000   -0.8100   -0.6400   -0.4900   -0.3600   -0.2500   -0.1600   -0.0900   -0.0400   -0.0100
+
+  Columns 51 through 60 
+
+         0   -0.0100   -0.0400   -0.0900   -0.1600   -0.2500   -0.3600   -0.4900   -0.6400   -0.8100
+
+  Columns 61 through 70 
+
+   -1.0000   -1.2100   -1.4400   -1.6900   -1.9600   -2.2500   -2.5600   -2.8900   -3.2400   -3.6100
+
+  Columns 71 through 80 
+
+   -4.0000   -4.4100   -4.8400   -5.2900   -5.7600   -6.2500   -6.7600   -7.2900   -7.8400   -8.4100
+
+  Columns 81 through 90 
+
+   -9.0000   -9.6100  -10.2400  -10.8900  -11.5600  -12.2500  -12.9600  -13.6900  -14.4400  -15.2100
+
+  Columns 91 through 100 
+
+  -16.0000  -16.8100  -17.6400  -18.4900  -19.3600  -20.2500  -21.1600  -22.0900  -23.0400  -24.0100
+
+  Column 101 
+
+  -25.0000
+
+plot(x,y,'k',x,z,'r')
+title ('grafico da funcao y=x^2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+grid
+legend('parabola1','parabola2',-1)
+%Graf 10
+z=-y+2;
+plot(x,y,'k',x,z,'r')
+title ('grafico da funcao y=x^2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+grid
+legend('parabola1','parabola2',-1)
+%Graf 11
+plot(x,y,'k')
+hold on
+title ('grafico da funcao y=x^2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+plot(x,y,'r')
+plot(x,y,'k')
+plot(x,z,'r')
+grid
+%Graf 12
+z=-x.^2+2;
+subplot(2,1,1)
+plot(x,y,'k')
+title ('grafico da funcao y=x^2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+subplot(2,1,2)
+plot(x,z,'r')
+title ('grafico da funcao y=-x^2+2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+grid
+%Graf 13
+subplot(2,1,1)
+subplot(1,2,1)
+plot(x,y,'k')
+title ('grafico da funcao y=x^2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+grid
+subplot(1,2,2)
+plot(x,z,'r')
+title ('grafico da funcao y=-x^2+2')
+xlabel('Eixo X')
+ylabel('Eixo Y')
+grid
+quit

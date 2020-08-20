@@ -1,0 +1,126 @@
+edit
+fschange('F:\MATLAB\Soma.m');
+clear soma
+Soma
+Digite um numero: 1
+
+A =
+
+     1
+
+
+Digite outro: 2
+
+B =
+
+     2
+
+
+
+Soma dos numeros:3.000000Soma
+Digite um numero: 1
+
+A =
+
+     1
+
+
+Digite outro: 2
+
+B =
+
+     2
+
+
+
+Soma dos numeros:3.000000edit
+fschange('F:\MATLAB\Exercicio1.m');
+clear exercicio1
+Exercicio1
+Digite um numero3
+O antecessor do numero 3.000000 = 2.000000 e o sucessor = 4.000000edit
+fschange('F:\MATLAB\Exercicio5.m');
+clear exercicio5
+fschange('F:\MATLAB\Exercicio5.m');
+clear exercicio5
+fschange('F:\MATLAB\Exercicio2.m');
+clear exercicio2
+Exercicio2
+Digite um numero natural: 7
+As unidades do numero 7 = 7Exercicio2
+Digite um numero natural: 160003
+As unidades do numero 160003 = 3edit
+Exercicio2
+Digite um numero natural: 14,5
+??? Error: "End of Input" expected, "numeric value" found.
+
+Digite um numero natural: 14
+As unidades do numero 14 = 4fschange('F:\MATLAB\Exercicio3.m');
+clear exercicio3
+Exercicio3
+Digite um numero natural: 567
+O numero 567 tem 7 unidades, 6 dezenas e 5.540000e+000 centenas100
+
+ans =
+
+   100
+
+Exercicio3
+Digite um numero natural: 100
+O numero 100 tem 0 unidades, 0 dezenas e 1 centenasfschange('F:\MATLAB\Exercicio3.m');
+clear exercicio3
+Exercicio3
+Digite um numero natural: 567
+O numero 567 tem 7 unidades, 6 dezenas e 5 centenasedit
+fschange('F:\MATLAB\Exercicio4.m');
+clear exercicio4
+Exercicio4
+Digite as unidades : 1
+Digite as dezenas : 1
+Digite as centenas : 1
+O dobro do numero 111 = 222edit
+fschange('F:\MATLAB\Exercicio5.m');
+clear exercicio5
+Exercicio5
+Digite o lado do retangulo2
+Digite a altura do retangulo3
+O perimetro do retangulo = 10.000000, a area do retangulo = 6.000000, diagonal do retangulo = 3.605551Exercicio5
+Digite o lado do retangulo3
+Digite a altura do retangulo4
+O perimetro do retangulo = 14.000000, a area do retangulo = 12.000000, diagonal do retangulo = 5.000000fschange('F:\MATLAB\Exercicio5.m');
+clear exercicio5
+edit
+fschange('F:\MATLAB\Exercicio6.m');
+clear exercicio6
+Exercicio6
+Digite o lado do quadrado : 5
+??? Undefined function or variable 'fprint'.
+
+Error in ==> F:\MATLAB\Exercicio6.m
+On line 7  ==> fprint('A area do quadrado externa ao circulo inscrito nele = %f',AREA);
+fschange('F:\MATLAB\Exercicio6.m');
+clear exercicio6
+Exercicio6
+Digite o lado do quadrado : 5
+A area do quadrado externa ao circulo inscrito nele = 17.146018Exercicio6
+Digite o lado do quadrado : 1
+A area do quadrado externa ao circulo inscrito nele = -0.570796edit
+fschange('F:\MATLAB\Exercicio7.m');
+clear exercicio7
+Exercicio7
+Digite o grau F: 0
+O F = 0.000000 -> C= -17.77777850
+
+ans =
+
+    50
+
+Exercicio7
+Digite o grau F: 50
+O F = 50.000000 -> C= 10.000000edit
+fschange('F:\MATLAB\Exercicio8.m');
+clear exercicio8
+edit
+fschange('F:\MATLAB\Exercicio9.m');
+clear exercicio9
+quit

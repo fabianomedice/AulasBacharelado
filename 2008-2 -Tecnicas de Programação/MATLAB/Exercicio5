@@ -1,0 +1,106 @@
+t(horas) = [0:2:12]
+??? Undefined function or variable 'horas'.
+
+t = [0:2:12]
+
+t =
+
+     0     2     4     6     8    10    12
+
+T = [58 57 53 50 51 57 61]
+
+T =
+
+    58    57    53    50    51    57    61
+
+plot(t,T)
+help plot
+
+ PLOT   Linear plot. 
+    PLOT(X,Y) plots vector Y versus vector X. If X or Y is a matrix,
+    then the vector is plotted versus the rows or columns of the matrix,
+    whichever line up.  If X is a scalar and Y is a vector, length(Y)
+    disconnected points are plotted.
+ 
+    PLOT(Y) plots the columns of Y versus their index.
+    If Y is complex, PLOT(Y) is equivalent to PLOT(real(Y),imag(Y)).
+    In all other uses of PLOT, the imaginary part is ignored.
+ 
+    Various line types, plot symbols and colors may be obtained with
+    PLOT(X,Y,S) where S is a character string made from one element
+    from any or all the following 3 columns:
+ 
+           b     blue          .     point              -     solid
+           g     green         o     circle             :     dotted
+           r     red           x     x-mark             -.    dashdot 
+           c     cyan          +     plus               --    dashed   
+           m     magenta       *     star
+           y     yellow        s     square
+           k     black         d     diamond
+                               v     triangle (down)
+                               ^     triangle (up)
+                               <     triangle (left)
+                               >     triangle (right)
+                               p     pentagram
+                               h     hexagram
+                          
+    For example, PLOT(X,Y,'c+:') plots a cyan dotted line with a plus 
+    at each data point; PLOT(X,Y,'bd') plots blue diamond at each data 
+    point but does not draw any line.
+ 
+    PLOT(X1,Y1,S1,X2,Y2,S2,X3,Y3,S3,...) combines the plots defined by
+    the (X,Y,S) triples, where the X's and Y's are vectors or matrices 
+    and the S's are strings.  
+ 
+    For example, PLOT(X,Y,'y-',X,Y,'go') plots the data twice, with a
+    solid yellow line interpolating green circles at the data points.
+ 
+    The PLOT command, if no color is specified, makes automatic use of
+    the colors specified by the axes ColorOrder property.  The default
+    ColorOrder is listed in the table above for color systems where the
+    default is blue for one line, and for multiple lines, to cycle
+    through the first six colors in the table.  For monochrome systems,
+    PLOT cycles over the axes LineStyleOrder property.
+ 
+    PLOT returns a column vector of handles to LINE objects, one
+    handle per line. 
+ 
+    The X,Y pairs, or X,Y,S triples, can be followed by 
+    parameter/value pairs to specify additional properties 
+    of the lines.
+                                    
+    See also SEMILOGX, SEMILOGY, LOGLOG, PLOTYY, GRID, CLF, CLC, TITLE,
+    XLABEL, YLABEL, AXIS, AXES, HOLD, COLORDEF, LEGEND, SUBPLOT, STEM.
+
+plot(t,T)title(Grafico Temperatura X Tempo das temperaturas obtidas no periodo de 0 horas ate as 12 horas do dia 18 de marco de 1996 na cidade de Atlanta na Geórgia - USA)
+??? plot(t,T)title(Grafico Temperatura X Tempo das temperaturas obtidas no periodo de 0 horas ate as 12 horas do dia 18 de marco de 1996 na cidade de Atlanta na Geórgia - USA)
+             |
+Error: Missing operator, comma, or semicolon.
+
+plot(t,T) title(Grafico Temperatura X Tempo das temperaturas obtidas no periodo de 0 horas ate as 12 horas do dia 18 de marco de 1996 na cidade de Atlanta na Geórgia - USA)
+??? plot(t,T) title(Grafico Temperatura X Tempo das temperaturas obtidas no periodo de 0 horas ate as 12 horas do dia 18 de marco de 1996 na cidade de Atlanta na Geórgia - USA)
+              |
+Error: Missing operator, comma, or semicolon.
+
+title(Grafico Temperatura X Tempo das temperaturas obtidas no periodo de 0 horas ate as 12 horas do dia 18 de marco de 1996 na cidade de Atlanta na Geórgia - USA)
+??? title(Grafico Temperatura X Tempo das temperaturas obtidas no periodo de 0 horas ate as 12 horas do dia 18 de marco de 1996 na cidade de Atlanta na Geórgia - USA)
+                  |
+Error: ")" expected, "identifier" found.
+
+plot(t,T)
+title(Grafico Temperatura X Tempo das temperaturas obtidas no periodo de 0 horas ate as 12 horas do dia 18 de marco de 1996 na cidade de Atlanta na Geórgia - USA)
+??? title(Grafico Temperatura X Tempo das temperaturas obtidas no periodo de 0 horas ate as 12 horas do dia 18 de marco de 1996 na cidade de Atlanta na Geórgia - USA)
+                  |
+Error: ")" expected, "identifier" found.
+
+title("Grafico Temperatura X Tempo")
+??? title("Grafico Temperatura X Tempo")
+          |
+Error: Missing variable or function.
+
+title('Grafico Temperatura X Tempo')
+plot(t,T)
+title('Grafico Temperatura X Tempo')
+xlabel('Tempo')
+ylabel('Temperatura')
+quit
