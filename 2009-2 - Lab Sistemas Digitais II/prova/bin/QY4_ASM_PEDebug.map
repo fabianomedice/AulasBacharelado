@@ -1,0 +1,109 @@
+*** EVALUATION ***
+PROGRAM "C:\Documents and Settings\Fabiano\Desktop\prova\bin\QY4_ASM_PEDebug.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Motorola HC08
+Memory Model: SMALL
+File Format : ELF\Dwarf 2.0
+Linker      : SmartLinker V-5.0.19, Apr  2 2002
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main.asm.o                              Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point : 0xEE00 (Entry)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.data                              3   R/W       0x80       0x82   RAM
+.stack                            96   R/W       0x83       0xE2   RAM
+.init                             88     R     0xEE00     0xEE57   ROM
+.vectSeg0_vect                     2     R     0xFFFE     0xFFFF   .vectSeg0
+
+
+ROM size:       5A (dec:       90)
+RAM size:       63 (dec:       99)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xEE00   main
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section     RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main.asm.o --
+- PROCEDURES:
+     Entry                                     EE00      12      18       0   .init       
+     main                                      EE00       0       0       0   .init       
+     inicio                                    EE12       C      12       0   .init       
+     crescente                                 EE1E      10      16       0   .init       
+     diminui                                   EE2E       B      11       0   .init       
+     diminui2                                  EE39       9       9       0   .init       
+     reset                                     EE42       5       5       0   .init       
+     delay                                     EE47       4       4       0   .init       
+     D10MILI                                   EE4B       2       2       0   .init       
+     D100MICRO                                 EE4D       2       2       0   .init       
+     LOOP0                                     EE4F       9       9       0   .init       
+- VARIABLES:
+     AUX                                         80       1       1      10   .data       
+     TEMPO                                       81       1       1       2   .data       
+     PORT                                        82       1       1       3   .data       
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".data"
+  AUX TEMPO PORT 
+SECTION: ".init"
+  main Entry inicio crescente diminui diminui2 reset delay D10MILI D100MICRO 
+  LOOP0 
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+Entry                     USES AUX 
+inicio                    USES PORT 
+crescente                 USES AUX 
+diminui                   USES AUX 
+diminui2                  USES AUX 
+reset                     USES AUX 
+delay                     USES TEMPO 
+LOOP0                     USES TEMPO 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- Entry               
+      
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 2
+Total size of all blocks to be downloaded: 90
+
