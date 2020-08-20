@@ -1,0 +1,202 @@
+
+
+					XDEF main
+
+
+					Include 'qtqy_registers.inc'    ; For the QT1, QT2, QT4, QY1, QY2, QY4
+PORTA	EQU $0000
+PORTB	EQU $0001
+DDRA    EQU $0004
+DDRB	EQU $0005
+PTAPUE  EQU $000B
+PTBPUE  EQU $000C
+
+KBSCR   EQU $001A
+KBIER   EQU $001B
+
+INTSCR	EQU $001D
+
+CONFIG2 EQU $001E
+CONFIG1 EQU $001F
+
+TSC	EQU $0020
+TCNTH	EQU $0021
+TCNTL	EQU $0022
+TMODH	EQU $0023
+TMODL	EQU $0024
+TSC0	EQU $0025
+TCH0H	EQU $0026
+TCH0L	EQU $0027
+TSC1	EQU $0028
+TCH1H	EQU $0029
+TCH1L	EQU $002A
+
+OSCSTAT EQU $0036
+OSCTRIM EQU $0037
+
+ADSCR	EQU $003C
+ADR	    EQU $003E
+ADICLK  EQU $003F
+
+BSR	EQU $FE00
+SRSR	EQU $FE01
+BRKAR	EQU $FE02
+BFCR	EQU $FE03
+INT1	EQU $FE04
+INT2	EQU $FE05
+INT3	EQU $FE06
+FLCR	EQU $FE08
+BRKH	EQU $FE09
+BRKL	EQU $FE0A
+BRKSCR	EQU $FE0B
+LVISR	EQU $FE0c
+FLBPR	EQU $FFBE
+IOSCTRM EQU $FFC0
+
+COPCTL	EQU $FFFF
+
+
+
+          
+
+DEFAULT_RAM				SECTION SHORT    
+VARDELAY:  DS  1
+TEMPOSINAL: DS 1
+STATUSTEMPO: DS 1
+STATUSPORTA: DS 1
+; Place RAM Variables here
+ 
+DEFAULT_ROM				SECTION
+main:      
+                   
+                     MOV #$40,CONFIG2
+                    
+                   MOV  #$39,CONFIG1
+                 ;  MOV #$80,PTAPUE
+                     
+                     MOV #$38,DDRA
+                     MOV #0,PORTA
+                     MOV #$83,PTAPUE
+			CLR INTSCR ; HABILITA LOCAL  IRQ NA TRANSICAO
+			CLI 
+
+LERCHAVE: LDA PORTA
+          AND #3
+          BEQ TEMP0
+          DECA
+          BEQ TEMP1
+          DECA
+          BEQ PISCAAMARELO
+FIXAVERDE: MOV #$20,PORTA
+			BRA LERCHAVE
+			
+PISCAAMARELO: SWI
+                            BRA LERCHAVE
+                            
+
+
+PISCA: 
+				
+				MOV #$10,PORTA
+				BSR D1SEG
+				MOV #0,PORTA
+				BSR D1SEG
+				BRSET 0, PORTA, SAI ; SE CH0 = 1 SAI
+				BRSET 1, PORTA, PISCA ; SE CH1CH0 = 10 PISCA
+SAI:
+				BSET 2, INTSCR 
+				NOP
+				NOP
+				BCLR 2, INTSCR
+
+
+				RTI
+
+TEMP0:
+
+VERDE:                     
+         MOV #$20,PORTA
+                
+               MOV #4,TEMPOSINAL
+                
+LVERDE:        BSR D1SEG   
+               DBNZ TEMPOSINAL, LVERDE
+               
+               
+                        
+AMARELO:                     
+           MOV #$10,PORTA
+                    
+         MOV #2,TEMPOSINAL           
+LAMARELO:    BSR D1SEG   
+             DBNZ TEMPOSINAL, LAMARELO
+            
+VERMELHO: 
+            MOV #$8,PORTA
+              MOV #3,TEMPOSINAL
+LVERMELHO:     BSR D1SEG   
+               DBNZ TEMPOSINAL, LVERMELHO        
+                     BRA LERCHAVE
+                    
+TEMP1:
+
+VERDE1:                     
+         MOV #$20,PORTA
+                
+               MOV #3,TEMPOSINAL
+                
+LVERDE1:        BSR D1SEG   
+               DBNZ TEMPOSINAL, LVERDE1
+               
+               
+                        
+AMARELO1:                     
+           MOV #$10,PORTA
+                    
+         MOV #1,TEMPOSINAL           
+LAMARELO1:    BSR D1SEG   
+             DBNZ TEMPOSINAL, LAMARELO1
+                            
+VERMELHO1: 
+            MOV #$8,PORTA
+              MOV #5,TEMPOSINAL
+LVERMELHO1:     BSR D1SEG   
+               DBNZ TEMPOSINAL, LVERMELHO1
+                                                 
+                     BRA LERCHAVE
+                     
+                     
+                     
+ D1SEG:          LDA #100
+                         STA VARDELAY                   
+ D10MILI:        LDA #100                    
+ D100MICRO: LDX #107
+ LOOP0:          DBNZX LOOP0
+                       
+                        DBNZA D100MICRO
+                        
+                        DBNZ VARDELAY, D10MILI
+                       
+                         RTS
+                     
+ PEDESTRE: 
+ 			MOV PORTA, STATUSPORTA
+ 			MOV TEMPOSINAL, STATUSTEMPO
+ 			MOV #08, PORTA
+ 			MOV #03, TEMPOSINAL
+			
+ LPE: 		BSR D1SEG
+ 			DBNZ TEMPOSINAL, LPE
+ 			MOV STATUSTEMPO, TEMPOSINAL
+ 			MOV STATUSPORTA, PORTA
+ 
+ 			RTI
+ 
+ 
+ 			ORG $FFFA
+ 			DC.W PEDESTRE
+  			ORG $FFFC
+  			DC.W PISCA
+                     
+                     
+                     

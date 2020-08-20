@@ -1,0 +1,264 @@
+
+PROGRAM "G:\meca0209\aula041109\bin\Project.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC08
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.34 Build 8120, Apr 30 2008
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main041109.asm.o                        Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xEE00 (main)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.data                             48   R/W       0x80       0xAF   RAM
+.stack                            48   R/W       0xB0       0xDF   RAM
+main041109.asm__ORG00001           2     R     0xFFDE     0xFFDF   .absSeg0
+main041109.asm__ORG00002           2     R     0xFFF2     0xFFF3   .absSeg1
+.init                            639     R     0xEE00     0xF07E   ROM
+.vectSeg2_vect                     2     R     0xFFFE     0xFFFF   .vectSeg2
+
+Summary of section sizes per section type:
+READ_ONLY (R):         285 (dec:      645)
+READ_WRITE (R/W):       60 (dec:       96)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xEE00   main
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main041109.asm.o --
+- PROCEDURES:
+     main                                      EE00      1D      29       0   .init       
+     LZERA                                     EE1D       9       9       0   .init       
+     LBUFFER                                   EE26      1F      31       0   .init       
+     MOSTRA                                    EE45      12      18       0   .init       
+     MOSTRA1                                   EE57       7       7       0   .init       
+     TELA2                                     EE5E      45      69       1   .init       
+     TELA1                                     EEA3      38      56       1   .init       
+     ROTTIMER                                  EEDB      31      49       1   .init       
+     SAIROT                                    EF0C       4       4       0   .init       
+     TIRAMEDIA                                 EF10       C      12       2   .init       
+     SOMABUFFER2                               EF1C       5       5       0   .init       
+     CONTMEDIA                                 EF21       B      11       0   .init       
+     KAMEDIA                                   EF2C       E      14       0   .init       
+     VARRELETRAS                               EF3A      11      17       2   .init       
+     L1                                        EF4B       4       4       0   .init       
+     HEXASC                                    EF4F       A      10       2   .init       
+     ELETRA                                    EF59       2       2       0   .init       
+     SAIF                                      EF5B       1       1       0   .init       
+     LCD_CLR                                   EF5C       C      12       1   .init       
+     LCD_WRITE                                 EF68      26      38      13   .init       
+     FICOU4                                    EF8E       7       7       0   .init       
+     FICOU3                                    EF8E       0       0       0   .init       
+     LCD_GO_TO                                 EF95       C      12       4   .init       
+     ENABLE                                    EFA1       8       8       6   .init       
+     LCD_INIT                                  EFA9      1D      29       1   .init       
+     FICOU1                                    EFC6      18      24       0   .init       
+     FICOU                                     EFC6       0       0       0   .init       
+     FICOU2                                    EFDE      1D      29       0   .init       
+     ESCREVE                                   EFFB      20      32       7   .init       
+     D5mseg                                    F01B       3       3       7   .init       
+     Tgasto1                                   F01E       3       3       0   .init       
+     VOLTA0                                    F021       9       9       0   .init       
+     ROTAD                                     F02A      10      16       1   .init       
+     SAIHD                                     F03A       4       4       0   .init       
+     HEXABCD                                   F03E       9       9       2   .init       
+     TIRACEM                                   F047       8       8       0   .init       
+     PULCEM                                    F04F       F      15       0   .init       
+     PULDEZ                                    F05E       6       6       0   .init       
+     SAIHEXABCD                                F064       5       5       0   .init       
+     INSTITUTO                                 F069       5       5       1   .init       
+     CURSO                                     F06E      11      17       1   .init       
+- VARIABLES:
+     HORA                                        80       1       1       6   .data       
+     MIN                                         81       1       1       6   .data       
+     SEG                                         82       1       1       9   .data       
+     DECEN                                       83       1       1       3   .data       
+     TEMPO                                       84       1       1       4   .data       
+     CARACTER                                    85       1       1      20   .data       
+     TEMPO1                                      86       3       3       6   .data       
+     AUS                                         89       1       1       4   .data       
+     AUX                                         8A       2       2      13   .data       
+     BUFFER                                      8C      20      32       6   .data       
+     EBUFFER                                     AC       2       2       4   .data       
+     MEDIAH                                      AE       1       1       1   .data       
+     MEDIABCD                                    AF       1       1       1   .data       
+     VAR00001                                  FFDE       2       2       0   .text       
+     VAR00002                                  FFF2       2       2       0   .text       
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main041109.asm.o                            48    639      4
+  other                                       48      2      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".text"
+  VAR00001 VAR00002 
+SECTION: ".data"
+  HORA MIN SEG DECEN TEMPO CARACTER TEMPO1 AUS AUX BUFFER EBUFFER MEDIAH 
+  MEDIABCD 
+SECTION: ".init"
+  main LZERA LBUFFER MOSTRA MOSTRA1 TELA2 TELA1 ROTTIMER SAIROT TIRAMEDIA 
+  SOMABUFFER2 CONTMEDIA KAMEDIA VARRELETRAS L1 HEXASC ELETRA SAIF LCD_CLR 
+  LCD_WRITE FICOU3 FICOU4 LCD_GO_TO ENABLE LCD_INIT FICOU FICOU1 FICOU2 ESCREVE 
+  D5mseg Tgasto1 VOLTA0 ROTAD SAIHD HEXABCD TIRACEM PULCEM PULDEZ SAIHEXABCD 
+  INSTITUTO CURSO 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     HORA                                        80       1       1       6   .data       
+     MIN                                         81       1       1       6   .data       
+     SEG                                         82       1       1       9   .data       
+     DECEN                                       83       1       1       3   .data       
+     TEMPO                                       84       1       1       4   .data       
+     CARACTER                                    85       1       1      20   .data       
+     TEMPO1                                      86       3       3       6   .data       
+     AUS                                         89       1       1       4   .data       
+     AUX                                         8A       2       2      13   .data       
+     BUFFER                                      8C      20      32       6   .data       
+     EBUFFER                                     AC       2       2       4   .data       
+     MEDIAH                                      AE       1       1       1   .data       
+     MEDIABCD                                    AF       1       1       1   .data       
+     main                                      EE00      1D      29       0   .init       
+     LZERA                                     EE1D       9       9       0   .init       
+     LBUFFER                                   EE26      1F      31       0   .init       
+     MOSTRA                                    EE45      12      18       0   .init       
+     MOSTRA1                                   EE57       7       7       0   .init       
+     TELA2                                     EE5E      45      69       1   .init       
+     TELA1                                     EEA3      38      56       1   .init       
+     ROTTIMER                                  EEDB      31      49       1   .init       
+     SAIROT                                    EF0C       4       4       0   .init       
+     TIRAMEDIA                                 EF10       C      12       2   .init       
+     SOMABUFFER2                               EF1C       5       5       0   .init       
+     CONTMEDIA                                 EF21       B      11       0   .init       
+     KAMEDIA                                   EF2C       E      14       0   .init       
+     VARRELETRAS                               EF3A      11      17       2   .init       
+     L1                                        EF4B       4       4       0   .init       
+     HEXASC                                    EF4F       A      10       2   .init       
+     ELETRA                                    EF59       2       2       0   .init       
+     SAIF                                      EF5B       1       1       0   .init       
+     LCD_CLR                                   EF5C       C      12       1   .init       
+     LCD_WRITE                                 EF68      26      38      13   .init       
+     FICOU3                                    EF8E       0       0       0   .init       
+     FICOU4                                    EF8E       7       7       0   .init       
+     LCD_GO_TO                                 EF95       C      12       4   .init       
+     ENABLE                                    EFA1       8       8       6   .init       
+     LCD_INIT                                  EFA9      1D      29       1   .init       
+     FICOU                                     EFC6       0       0       0   .init       
+     FICOU1                                    EFC6      18      24       0   .init       
+     FICOU2                                    EFDE      1D      29       0   .init       
+     ESCREVE                                   EFFB      20      32       7   .init       
+     D5mseg                                    F01B       3       3       7   .init       
+     Tgasto1                                   F01E       3       3       0   .init       
+     VOLTA0                                    F021       9       9       0   .init       
+     ROTAD                                     F02A      10      16       1   .init       
+     SAIHD                                     F03A       4       4       0   .init       
+     HEXABCD                                   F03E       9       9       2   .init       
+     TIRACEM                                   F047       8       8       0   .init       
+     PULCEM                                    F04F       F      15       0   .init       
+     PULDEZ                                    F05E       6       6       0   .init       
+     SAIHEXABCD                                F064       5       5       0   .init       
+     INSTITUTO                                 F069       5       5       1   .init       
+     CURSO                                     F06E      11      17       1   .init       
+     VAR00001                                  FFDE       2       2       0   .text       
+     VAR00002                                  FFF2       2       2       0   .text       
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+main                      USES LCD_INIT 
+LZERA                     USES BUFFER 
+LBUFFER                   USES BUFFER EBUFFER HORA MIN SEG 
+MOSTRA                    USES TELA1 SEG 
+MOSTRA1                   USES TELA2 SEG 
+TELA2                     USES TIRAMEDIA HEXABCD CARACTER LCD_GO_TO INSTITUTO 
+                                VARRELETRAS HORA ESCREVE LCD_WRITE MIN SEG DECEN 
+TELA1                     USES TIRAMEDIA HEXABCD CARACTER LCD_GO_TO CURSO 
+                                VARRELETRAS HORA ESCREVE LCD_WRITE MIN SEG 
+ROTTIMER                  USES DECEN SEG MIN HORA 
+TIRAMEDIA                 USES AUX BUFFER 
+SOMABUFFER2               USES AUX 
+CONTMEDIA                 USES BUFFER AUX 
+KAMEDIA                   USES AUX MEDIAH 
+VARRELETRAS               USES CARACTER LCD_WRITE 
+LCD_CLR                   USES CARACTER LCD_WRITE D5mseg 
+LCD_WRITE                 USES CARACTER AUS ENABLE TEMPO1 
+FICOU4                    USES TEMPO1 
+LCD_GO_TO                 USES CARACTER LCD_WRITE 
+LCD_INIT                  USES D5mseg ENABLE TEMPO 
+FICOU1                    USES TEMPO ENABLE D5mseg 
+FICOU2                    USES D5mseg TEMPO CARACTER LCD_WRITE LCD_CLR 
+ESCREVE                   USES HEXASC CARACTER LCD_WRITE 
+D5mseg                    USES TEMPO1 
+Tgasto1                   USES TEMPO1 
+VOLTA0                    USES TEMPO1 
+ROTAD                     USES EBUFFER BUFFER 
+SAIHD                     USES EBUFFER 
+HEXABCD                   USES AUX 
+TIRACEM                   USES AUX 
+PULCEM                    USES AUX 
+PULDEZ                    USES AUX 
+SAIHEXABCD                USES AUX MEDIABCD 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+    | 
+    +- LCD_INIT            
+       | 
+       +- D5mseg              
+       |    
+       +- ENABLE              
+            
+ _ORG00001           
+ | 
+ +- ROTAD               
+      
+ _ORG00002           
+ | 
+ +- ROTTIMER            
+      
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 4
+Total size of all blocks to be downloaded: 645
+

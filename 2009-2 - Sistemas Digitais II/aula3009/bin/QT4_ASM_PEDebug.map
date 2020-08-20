@@ -1,0 +1,134 @@
+
+PROGRAM "F:\meca0209\aula3009\bin\QT4_ASM_PEDebug.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Motorola HC08
+Memory Model: SMALL
+File Format : ELF\Dwarf 2.0
+Linker      : SmartLinker V-5.0.19, Apr  2 2002
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main.asm.o                              Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point : 0xEE00 (main)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.data                              4   R/W       0x80       0x83   RAM
+.stack                            96   R/W       0x84       0xE3   RAM
+main.asm__ORG00001                 2     R     0xFFFA     0xFFFB   .absSeg0
+main.asm__ORG00002                 2     R     0xFFFC     0xFFFD   .absSeg1
+.init                            171     R     0xEE00     0xEEAA   ROM
+.vectSeg2_vect                     2     R     0xFFFE     0xFFFF   .vectSeg2
+
+
+ROM size:       B1 (dec:      177)
+RAM size:       64 (dec:      100)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xEE00   main
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section     RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main.asm.o --
+- PROCEDURES:
+     main                                      EE00      12      18       0   .init       
+     LERCHAVE                                  EE12      11      17       0   .init       
+     PISCAAMARELO                              EE23       3       3       0   .init       
+     PISCA                                     EE26      10      16       1   .init       
+     SAI                                       EE36       7       7       0   .init       
+     TEMP0                                     EE3D       6       6       0   .init       
+     LVERDE                                    EE43       B      11       0   .init       
+     LAMARELO                                  EE4E       B      11       0   .init       
+     LVERMELHO                                 EE59       7       7       0   .init       
+     TEMP1                                     EE60       6       6       0   .init       
+     LVERDE1                                   EE66       B      11       0   .init       
+     LAMARELO1                                 EE71       B      11       0   .init       
+     LVERMELHO1                                EE7C       7       7       0   .init       
+     D1SEG                                     EE83       4       4       0   .init       
+     D10MILI                                   EE87       2       2       0   .init       
+     D100MICRO                                 EE89       2       2       0   .init       
+     LOOP0                                     EE8B       8       8       0   .init       
+     PEDESTRE                                  EE93       C      12       1   .init       
+     LPE                                       EE9F       C      12       0   .init       
+- VARIABLES:
+     VARDELAY                                    80       1       1       2   .data       
+     TEMPOSINAL                                  81       1       1      16   .data       
+     STATUSTEMPO                                 82       1       1       2   .data       
+     STATUSPORTA                                 83       1       1       2   .data       
+     VAR00001                                  FFFA       2       2       0   .text       
+     VAR00002                                  FFFC       2       2       0   .text       
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".text"
+  VAR00001 VAR00002 
+SECTION: ".data"
+  VARDELAY TEMPOSINAL STATUSTEMPO STATUSPORTA 
+SECTION: ".init"
+  main LERCHAVE PISCAAMARELO PISCA SAI TEMP0 LVERDE LAMARELO LVERMELHO TEMP1 
+  LVERDE1 LAMARELO1 LVERMELHO1 D1SEG D10MILI D100MICRO LOOP0 PEDESTRE LPE 
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+TEMP0                     USES TEMPOSINAL 
+LVERDE                    USES TEMPOSINAL 
+LAMARELO                  USES TEMPOSINAL 
+LVERMELHO                 USES TEMPOSINAL 
+TEMP1                     USES TEMPOSINAL 
+LVERDE1                   USES TEMPOSINAL 
+LAMARELO1                 USES TEMPOSINAL 
+LVERMELHO1                USES TEMPOSINAL 
+D1SEG                     USES VARDELAY 
+LOOP0                     USES VARDELAY 
+PEDESTRE                  USES STATUSPORTA TEMPOSINAL STATUSTEMPO 
+LPE                       USES TEMPOSINAL STATUSTEMPO STATUSPORTA 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+      
+ _ORG00001           
+ | 
+ +- PEDESTRE            
+      
+ _ORG00002           
+ | 
+ +- PISCA               
+      
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 4
+Total size of all blocks to be downloaded: 177
+
