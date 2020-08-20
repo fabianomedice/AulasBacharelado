@@ -1,0 +1,84 @@
+HEXABCD: LDHX #0
+         STHX AUX 
+         
+CENT:    CMP #200
+         BHS N200
+         CMP #100
+         BHS N100
+         BRA N000
+         
+N200:    MOV #$02,AUX
+         SUB #200
+         BRA DEZ 
+
+N100:    MOV #$01,AUX
+         SUB #100
+         BRA DEZ
+
+N000:    
+
+DEZ:     CMP #90
+         BHS N90
+         CMP #80
+         BHS N80
+         CMP #70
+         BHS N70
+         CMP #60
+         BHS N60
+         CMP #50
+         BHS N50
+         CMP #40
+         BHS N40
+         CMP #30
+         BHS N30
+         CMP #20
+         BHS N20
+         CMP #10
+         BHS N10
+         BRA N00
+
+N90:     MOV #$90,AUX+1
+         SUB #90
+         BRA UNI
+         
+N80:     MOV #$80,AUX+1
+         SUB #80
+         BRA UNI
+         
+N70:     MOV #$70,AUX+1
+         SUB #70
+         BRA UNI
+         
+N60:     MOV #$60,AUX+1
+         SUB #60
+         BRA UNI
+         
+N50:     MOV #$50,AUX+1
+         SUB #50
+         BRA UNI
+         
+N40:     MOV #$40,AUX+1
+         SUB #40
+         BRA UNI
+         
+N30:     MOV #$30,AUX+1
+         SUB #30
+         BRA UNI
+         
+N20:     MOV #$20,AUX+1
+         SUB #20
+         BRA UNI
+         
+N10:     MOV #$10,AUX+1
+         SUB #10
+         BRA UNI
+         
+N00:
+
+UNI:     ADD AUX+1
+         STA AUX+1
+  
+FIM:     LDHX AUX
+         STHX MEDIABCD
+         RTS 
+         

@@ -1,0 +1,204 @@
+  XDEF main
+
+
+					Include 'qtqy_registers.inc'    ; For the QT1, QT2, QT4, QY1, QY2, QY4
+
+
+DEFAULT_RAM				SECTION SHORT    
+
+
+AUX DS 2
+HORA: DS 1
+MIN: DS 1 
+SEG DS 1
+DECEN: DS 1
+
+DIVTEMPO: DS 2
+TEMPO: DS 1
+DEFAULT_ROM				SECTION
+
+
+main:
+        ;CONFIGURACOES GERAIS
+  		MOV #$0 , CONFIG2
+		MOV #$39 , CONFIG1
+		;MOV #$01 ,INTSCR
+		
+        
+		MOV #$30, TSC	
+        MOV #$44, TSC	
+        LDHX #100		
+        STHX TMODH  
+        LDHX #0
+        STHX TCH0H
+        MOV #$11,HORA
+        MOV #$32,MIN
+        CLR SEG
+        CLR DECEN
+		LDHX #0
+		STHX DIVTEMPO
+		
+				CLI          ;HABILITA INTERRUPCOES 
+				
+
+     
+LIGA:  
+       
+      
+       MOV #$5A,TSC0
+       LDHX #10
+       STHX TCH0H
+       
+       CLR TEMPO
+L01:   LDA TEMPO
+     
+       CMP #2 
+       BNE L01
+       
+       LDHX #25
+       STHX TCH0H
+       CLR TEMPO
+L02:   LDA TEMPO            
+       CMP #2
+       BNE L02         
+
+       LDHX #50
+       STHX TCH0H
+       CLR TEMPO
+L03:   LDA TEMPO
+       CMP #2            
+       BNE L03
+       
+       LDHX #75
+       STHX TCH0H
+       CLR TEMPO
+L04:   LDA TEMPO 
+       CMP #2   
+       BNE L04
+      
+       LDHX #95
+       STHX TCH0H
+       LDA MIN
+       ADD #2
+       DAA
+       CMP #$60
+       BCS L05
+       AND #$F0
+       
+L05:   CMP MIN      
+       BNE L05
+       
+       LDHX #75
+       STHX TCH0H
+       CLR TEMPO
+L06:   LDA TEMPO            
+       CMP #2 
+       BNE L06 
+       
+       LDHX #50
+       STHX TCH0H
+       CLR TEMPO
+L07:   LDA TEMPO            
+       CMP #2 
+       BNE L07
+       
+       LDHX #25
+       STHX TCH0H
+       CLR TEMPO
+L08:   LDA TEMPO            
+       CMP #2 
+       BNE L08
+       
+       LDHX #10
+       STHX TCH0H
+       CLR TEMPO
+L09:   LDA TEMPO            
+       CMP #3 
+       BNE L09                                  
+       
+       BCLR 1,TSC0
+             
+ESPERA:BRA ESPERA     
+       
+       
+  
+
+        
+      
+		
+		
+		
+		
+		
+		
+		
+		
+	 
+	
+		
+		; INTERRUPCAO DO TIM 	
+ROTTIMER: PSHH
+       			
+		LDHX DIVTEMPO
+		AIX #1
+		STHX DIVTEMPO
+		CPHX #20
+		BNE SAIREL
+		LDHX #0
+        STHX DIVTEMPO
+        LDA DECEN
+		ADD #1
+		DAA
+		STA DECEN
+		BNE SAIREL
+D1SEG:   INC TEMPO
+        LDA SEG
+        ADD #1
+        DAA 
+        STA SEG
+        CMP #$60
+        BNE SAIREL
+        CLR SEG
+        LDA MIN
+        ADD #1
+        DAA 
+        STA MIN
+        CMP #$60
+        BNE SAIREL
+        CLR MIN
+        LDA HORA
+        ADD #1
+        DAA 
+        STA HORA
+        CMP #$24
+        BNE SAIREL
+        CLR HORA
+        			
+SAIREL:	PULH	
+        BCLR 7,TSC		
+		RTI	
+		
+ROTCANAL0:
+
+
+        BCLR 7,TSC0
+
+        RTI           
+
+
+		
+
+ 
+
+
+
+       ;VETORES DE INTERRUPCAO
+		
+		ORG $FFF6
+		DC.W ROTCANAL0
+		ORG $FFF2
+		DC.W ROTTIMER
+		
+
+   END  
+
