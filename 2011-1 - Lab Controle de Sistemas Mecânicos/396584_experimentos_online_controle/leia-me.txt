@@ -1,0 +1,10 @@
+- Experimentos realizados no site:
+	http://act.dii.unisi.it/experiments.php
+- Para executar o experimento é necessário:
+	1 - Baixar e instalar a máquina virtual java
+	http://www.java.com/pt_BR/download/windows_xpi.jsp?locale=pt_BR&host=www.java.com
+	2 - Adicionar o site à lista de sites seguros
+	3 - Adicionar o site à lista de sites que são permitidos pop-up's, ou desabilitar o 	bloqueador de pop-up's
+	4 - se isso tudo não der certo então tentar liberar a TCP port 2000 no firewall do 
+	windows
+	5 - outras dicas para soluções de problemas do site: http://act.dii.unisi.it/faq.php
